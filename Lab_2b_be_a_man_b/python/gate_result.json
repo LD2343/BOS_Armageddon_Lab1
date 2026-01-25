@@ -1,0 +1,59 @@
+{
+  "schema_version": "2.0",
+  "gate": "lab2_all_gates",
+  "timestamp_utc": "2026-01-22T23:59:36Z",
+  "badge": "RED",
+  "status": "FAIL",
+  "exit_code": 2,
+
+  "inputs": {
+    "origin_region": "us-east-1",
+    "cloudfront_distribution_id": "E35DOVRWEUTMBX",
+    "domain_name": "larrryharrisaws.com",
+    "route53_zone_id": "Z0825167K1N04S2RCG6V",
+    "acm_cert_arn": "arn:aws:acm:us-east-1:891377135193:certificate/eae7e6ee-a96d-4971-a550-c9cac6dae682",
+    "waf_web_acl_arn": "arn:aws:wafv2:us-east-1:891377135193:global/webacl/bos-cf-waf01/720ea2ff-5047-4bd4-8853-b10be4474371",
+    "log_bucket": "/aws/ec2/bos-rds-app",
+    "origin_sg_id": "sg-0aa3623d9362f30d7",
+    "app_ports": "443,80"
+  },
+
+  "observed": {
+    "caller_arn": "arn:aws:iam::891377135193:user/AWSCLI",
+    "cloudfront_domain": "d2pksv826xpftg.cloudfront.net",
+    "cloudfront_status": "Deployed",
+    "cloudfront_enabled": "True",
+    "cloudfront_aliases": "larrryharrisaws.com	app.larrryharrisaws.com",
+    "viewer_cert_source": "acm",
+    "viewer_acm_arn": "arn:aws:acm:us-east-1:891377135193:certificate/eae7e6ee-a96d-4971-a550-c9cac6dae682",
+    "minimum_tls": "TLSv1.2_2021",
+    "logging_bucket": "",
+    "cache_policy_id": "aa054a37-ed49-4e11-90c7-0255ecfb454b"
+  },
+
+  "rollup": {
+    "details": [
+"PASS: AWS credentials OK (caller=arn:aws:iam::891377135193:user/AWSCLI).\nPASS: CloudFront distribution retrieved (ID=E35DOVRWEUTMBX).\nPASS: CloudFront Enabled=True.\nPASS: CloudFront Status=Deployed.\nPASS: CloudFront aliases include domain (larrryharrisaws.com).\nPASS: CloudFront uses ACM certificate (ACM ARN present).\nPASS: Minimum TLS includes TLSv1.2 (MinimumProtocolVersion=TLSv1.2_2021).\nPASS: ACM certificate is ISSUED (us-east-1).\nPASS: ACM cert covers domain (larrryharrisaws.com).\nPASS: WAF WebACL is associated with CloudFront (ARN=arn:aws:wafv2:us-east-1:891377135193:global/webacl/bos-cf-waf01/720ea2ff-5047-4bd4-8853-b10be4474371).\nPASS: Route53 record sets retrieved (zone=Z0825167K1N04S2RCG6V).\nPASS: Route53 A alias HostedZoneId is CloudFront (Z2FDTNDATAQYW2.).\nPASS: Route53 AAAA alias HostedZoneId is CloudFront (Z2FDTNDATAQYW2.).\nPASS: Origin SG exists (sg-0aa3623d9362f30d7).\nPASS: Origin SG sg-0aa3623d9362f30d7 is not world-open on port 443.\nPASS: DefaultCacheBehavior uses CachePolicyId (modern caching config)."],
+    "warnings": [
+"WARN: WAF has no managed rule groups detected (consider AWSManagedRules* baseline).\nWARN: Origin SG sg-0aa3623d9362f30d7 has no visible sources on port 443 (check prefix lists / LB SG chaining)."],
+    "failures": [
+"FAIL: Route53 A alias does not point to CloudFront (expected=d2pksv826xpftg.cloudfront.net, actual=d2pksv826xpftg.cloudfront.net.).\nFAIL: Route53 AAAA alias does not point to CloudFront (expected=d2pksv826xpftg.cloudfront.net, actual=d2pksv826xpftg.cloudfront.net.).\nFAIL: CloudFront logging not enabled (DistributionConfig.Logging.Bucket missing).\nFAIL: Log bucket does not exist or not accessible (/aws/ec2/bos-rds-app).\nFAIL: Origin SG sg-0aa3623d9362f30d7 allows port 80 from the world (0.0.0.0/0 or ::/0)."]
+  },
+
+  "clocks": {
+    "first_seen_utc": "2026-01-22T20:55:32Z",
+    "last_seen_utc": "2026-01-22T23:57:17Z"
+  },
+  "sla": {
+    "target_hours": 24,
+    "due_utc": "2026-01-23T20:55:32Z",
+    "breached": false,
+    "age_seconds": "10905",
+    "remaining_seconds": "75495"
+  },
+
+  "artifacts": {
+    "badge_txt": "badge.txt",
+    "pr_comment_md": "pr_comment.md"
+  }
+}
