@@ -1,4 +1,4 @@
-# resource "aws_wafv2_web_acl" "brazil_cf_waf01" {
+# resource "aws_wafv2_web_acl" "gru_cf_waf01" {
 #   provider = aws.us_east_1   # ← This line fixes the error
 
 #   name  = "${var.project_name}-cf-waf01"   # or whatever naming you use

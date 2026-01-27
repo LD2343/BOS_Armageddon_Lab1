@@ -1,19 +1,19 @@
 # # RDS
 # # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/db_instance
-# # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/db_subnet_group
+# # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/db_subnet_gruup
 
-# # RDS Subnet Group
-# resource "aws_db_subnet_group" "brazil_rds_subnet_group01" {
-#   name       = "${local.name_prefix}-rds-subnet-group01"
-#   subnet_ids = aws_subnet.brazil_private_subnets[*].id
+# # RDS Subnet gruup
+# resource "aws_db_subnet_gruup" "gru_rds_subnet_gruup01" {
+#   name       = "${local.name_prefix}-rds-subnet-gruup01"
+#   subnet_ids = aws_subnet.gru_private_subnets[*].id
 
 #   tags = {
-#     Name = "${local.name_prefix}-rds-subnet-group01"
+#     Name = "${local.name_prefix}-rds-subnet-gruup01"
 #   }
 # }
 
 # # RDS Instance
-# resource "aws_db_instance" "brazil_rds01" {
+# resource "aws_db_instance" "gru_rds01" {
 #   identifier        = "${local.name_prefix}-rds01"
 #   engine            = var.db_engine
 #   instance_class    = var.db_instance_class
@@ -22,8 +22,8 @@
 #   username          = var.db_username
 #   password          = var.db_password
 
-#   db_subnet_group_name   = aws_db_subnet_group.brazil_rds_subnet_group01.name
-#   vpc_security_group_ids = [aws_security_group.brazil_rds_sg01.id]
+#   db_subnet_gruup_name   = aws_db_subnet_gruup.gru_rds_subnet_gruup01.name
+#   vpc_security_gruup_ids = [aws_security_gruup.gru_rds_sg01.id]
 
 #   publicly_accessible = false
 #   skip_final_snapshot = true

@@ -1,7 +1,7 @@
 # VPC
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc
 
-resource "aws_vpc" "brazil_vpc01" {
+resource "aws_vpc" "gru_vpc01" {
   cidr_block           = "10.55.0.0/16"
   enable_dns_support   = true
   enable_dns_hostnames = true

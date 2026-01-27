@@ -5,15 +5,15 @@ variable "aws_account_id" {
 }
 
 variable "aws_region" {
-  description = "AWS Region for the brazil fleet to patrol."
+  description = "AWS Region for the gro fleet to patrol."
   type        = string
   default     = "sa-east-1"
 }
 
 variable "project_name" {
-  description = "Prefix for naming. Students should change from 'brazil' to their own."
+  description = "Prefix for naming. Students should change from 'gro' to their own."
   type        = string
-  default     = "brazil"
+  default     = "gro"
 }
 
 variable "vpc_cidr" {

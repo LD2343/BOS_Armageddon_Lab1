@@ -5,7 +5,7 @@ provider "aws" {
 
 # Your brazil alias (already there - keep it)
 provider "aws" {
-  alias  = "sa_east_1"
+  alias  = "saopaulo"
   region = "sa-east-1"
 }
 
