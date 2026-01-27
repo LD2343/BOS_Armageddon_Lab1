@@ -1,0 +1,33 @@
+# Default provider (already there - keep it)
+provider "aws" {
+  region = var.aws_region   # should be "sa-east-1"
+}
+
+# Your brazil alias (already there - keep it)
+provider "aws" {
+  alias  = "sa_east_1"
+  region = "sa-east-1"
+}
+
+provider "aws" {
+  alias  = "ap_northeast_1"
+  region = "ap-northeast-1"
+}
+
+provider "aws" {
+  alias  = "use1"
+  region = "us-east-1"
+
+  # Use the same credentials / profile / assume_role as your default provider
+  # Usually you can leave it blank if using the same AWS credentials / env vars
+}
+
+terraform {
+  required_version = ">= 1.5.0"
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = ">= 5.0"
+    }
+  }
+}
