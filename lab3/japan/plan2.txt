@@ -1,0 +1,428 @@
+[0m[1mrandom_password.edo_origin_header_value01: Refreshing state... [id=none][0m
+[0m[1maws_acm_certificate.edo_acm_cert01: Refreshing state... [id=arn:aws:acm:us-east-1:891377135193:certificate/69aabfe8-2218-4198-8fc1-76972b2808b5][0m
+[0m[1maws_wafv2_web_acl.edo_cf_waf01: Refreshing state... [id=c6ee3a82-e8ef-4c3b-a2a3-5af2296a4d08][0m
+[0m[1mdata.aws_cloudfront_cache_policy.edo_use_origin_cache_headers01: Reading...[0m[0m
+[0m[1maws_cloudfront_origin_request_policy.edo_orp_static01: Refreshing state... [id=ac27f3aa-7b7a-4fc4-a785-81189e7da2aa][0m
+[0m[1maws_route53_record.edo_acm_validation_records01["*.larrryharrisaws.com"]: Refreshing state... [id=Z0825167K1N04S2RCG6V__e68c7bf92882b94911df33d8f80cfe32.larrryharrisaws.com._CNAME][0m
+[0m[1maws_cloudwatch_log_group.edo_log_group01: Refreshing state... [id=/aws/ec2/edo-rds-app][0m
+[0m[1maws_cloudfront_cache_policy.edo_cache_static01: Refreshing state... [id=63c9684f-d82a-4610-9e35-74e9b1d35f55][0m
+[0m[1maws_route53_record.edo_acm_validation_records01["larrryharrisaws.com"]: Refreshing state... [id=Z0825167K1N04S2RCG6V__e68c7bf92882b94911df33d8f80cfe32.larrryharrisaws.com._CNAME][0m
+[0m[1maws_sns_topic.edo_sns_topic01: Refreshing state... [id=arn:aws:sns:ap-northeast-1:891377135193:edo-db-incidents][0m
+[0m[1maws_cloudfront_response_headers_policy.edo_rsp_static01: Refreshing state... [id=e8dc93d2-ba7e-45d5-9e1c-8ce976c5a3d3][0m
+[0m[1maws_vpc.edo_vpc01: Refreshing state... [id=vpc-0a58d2762b7c39e0e][0m
+[0m[1mdata.aws_ec2_managed_prefix_list.edo_cf_origin_facing01: Reading...[0m[0m
+[0m[1mdata.aws_cloudfront_origin_request_policy.edo_orp_all_viewer_except_host01: Reading...[0m[0m
+[0m[1maws_s3_bucket.edo_alb_logs_bucket01[0]: Refreshing state... [id=edo-alb-logs-lh-891377135193][0m
+[0m[1mdata.aws_cloudfront_cache_policy.edo_use_origin_cache_headers01: Read complete after 0s [id=83da9c7e-98b4-4e11-a168-04f0df8e2c65][0m
+[0m[1mdata.aws_cloudfront_cache_policy.edo_use_origin_cache_headers_qs01: Reading...[0m[0m
+[0m[1mdata.aws_cloudfront_origin_request_policy.edo_orp_all_viewer_except_host01: Read complete after 1s [id=b689b0a8-53d0-40ab-baf2-68738e2966ac][0m
+[0m[1mdata.aws_cloudfront_cache_policy.caching_disabled: Reading...[0m[0m
+[0m[1mdata.aws_cloudfront_cache_policy.edo_use_origin_cache_headers_qs01: Read complete after 1s [id=4cc15a8a-d715-48a4-82b8-cc0b614638fe][0m
+[0m[1maws_eip.edo_nat_eip01: Refreshing state... [id=eipalloc-073248b787bbc37dd][0m
+[0m[1mdata.aws_cloudfront_cache_policy.caching_disabled: Read complete after 0s [id=4135ea2d-6df8-44a3-9df3-4b5a84be39ad][0m
+[0m[1mdata.aws_region.edo_region01: Reading...[0m[0m
+[0m[1mdata.aws_region.edo_region01: Read complete after 0s [id=ap-northeast-1][0m
+[0m[1maws_cloudfront_cache_policy.edo_cache_api_disabled01: Refreshing state... [id=74875c32-5f33-4f6d-9d70-c549abef7814][0m
+[0m[1maws_cloudfront_origin_request_policy.edo_orp_api01: Refreshing state... [id=40cb5e27-5433-4acd-ba54-00de49cedfbf][0m
+[0m[1mdata.aws_caller_identity.edo_self01: Reading...[0m[0m
+[0m[1maws_ssm_parameter.edo_db_name_param: Refreshing state... [id=/edo/db/name][0m
+[0m[1mdata.aws_cloudfront_origin_request_policy.managed_all_viewer_except_host: Reading...[0m[0m
+[0m[1mdata.aws_caller_identity.edo_self01: Read complete after 0s [id=891377135193][0m
+[0m[1maws_iam_role.edo_ec2_role01: Refreshing state... [id=edo-ec2-role01][0m
+[0m[1mdata.aws_cloudfront_origin_request_policy.managed_all_viewer_except_host: Read complete after 0s [id=b689b0a8-53d0-40ab-baf2-68738e2966ac][0m
+[0m[1mdata.aws_cloudfront_origin_request_policy.edo_orp_all_viewer01: Reading...[0m[0m
+[0m[1mdata.aws_cloudfront_origin_request_policy.edo_orp_all_viewer01: Read complete after 1s [id=216adef6-5c7f-47e4-b989-5492eafa07d3][0m
+[0m[1mmodule.shinjuku_tgw.aws_ec2_transit_gateway.this[0]: Refreshing state... [id=tgw-05ef60ee52d149de9][0m
+[0m[1maws_iam_policy.edo_leastpriv_cwlogs01: Refreshing state... [id=arn:aws:iam::891377135193:policy/edo-lp-cwlogs01][0m
+[0m[1maws_sns_topic_subscription.edo_sns_sub01: Refreshing state... [id=arn:aws:sns:ap-northeast-1:891377135193:edo-db-incidents:041585cf-0eee-4682-bdc7-47ec1880d774][0m
+[0m[1mdata.aws_ec2_managed_prefix_list.edo_cf_origin_facing01: Read complete after 2s [id=pl-58a04531][0m
+[0m[1maws_cloudwatch_metric_alarm.edo_db_alarm01: Refreshing state... [id=edo-db-connection-failure][0m
+[0m[1maws_iam_policy.edo_leastpriv_read_params01: Refreshing state... [id=arn:aws:iam::891377135193:policy/edo-lp-ssm-read01][0m
+[0m[1maws_iam_policy.edo_leastpriv_read_secret01: Refreshing state... [id=arn:aws:iam::891377135193:policy/edo-lp-secrets-read01][0m
+[0m[1maws_acm_certificate_validation.edo_acm_validation01: Refreshing state... [id=2026-01-29 14:13:15.748 +0000 UTC][0m
+[0m[1mmodule.shinjuku_tgw.aws_ec2_tag.this["Name"]: Refreshing state... [id=tgw-rtb-017fe568b52736155,Name][0m
+[0m[1mmodule.shinjuku_tgw.aws_ec2_tag.this["Environment"]: Refreshing state... [id=tgw-rtb-017fe568b52736155,Environment][0m
+[0m[1mmodule.shinjuku_tgw.aws_ec2_transit_gateway_route_table.this[0]: Refreshing state... [id=tgw-rtb-0140d5f9b06ed0b10][0m
+[0m[1maws_ec2_transit_gateway_peering_attachment.shinjuku_to_liberdade[0]: Refreshing state... [id=tgw-attach-046b512e8f5f3703b][0m
+[0m[1maws_iam_role_policy.edo_ec2_secrets_access: Refreshing state... [id=edo-ec2-role01:secrets-manager-edo-rds][0m
+[0m[1maws_iam_role_policy_attachment.edo_ec2_ssm_attach: Refreshing state... [id=edo-ec2-role01/arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore][0m
+[0m[1maws_iam_instance_profile.edo_instance_profile01: Refreshing state... [id=edo-instance-profile01][0m
+[0m[1maws_iam_role_policy_attachment.edo_attach_lp_cwlogs01: Refreshing state... [id=edo-ec2-role01/arn:aws:iam::891377135193:policy/edo-lp-cwlogs01][0m
+[0m[1maws_iam_role_policy_attachment.edo_attach_lp_params01: Refreshing state... [id=edo-ec2-role01/arn:aws:iam::891377135193:policy/edo-lp-ssm-read01][0m
+[0m[1maws_iam_role_policy_attachment.edo_ec2_cw_attach: Refreshing state... [id=edo-ec2-role01/arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy][0m
+[0m[1maws_iam_role_policy_attachment.edo_attach_lp_secret01: Refreshing state... [id=edo-ec2-role01/arn:aws:iam::891377135193:policy/edo-lp-secrets-read01][0m
+[0m[1maws_internet_gateway.edo_igw01: Refreshing state... [id=igw-058ffff4a63b4b1f0][0m
+[0m[1maws_route_table.edo_private_rt01: Refreshing state... [id=rtb-0a99b396cdd9bd0b2][0m
+[0m[1maws_route_table.edo_public_rt01: Refreshing state... [id=rtb-0c011632e1245b7df][0m
+[0m[1maws_security_group.edo_ec2_sg01: Refreshing state... [id=sg-0f062c8d6ea8d2794][0m
+[0m[1maws_subnet.edo_private_subnets[0]: Refreshing state... [id=subnet-0258762d69aea7ff4][0m
+[0m[1maws_security_group.edo_vpce_sg01: Refreshing state... [id=sg-0903d66468879a487][0m
+[0m[1maws_subnet.edo_private_subnets[1]: Refreshing state... [id=subnet-0b6609f1861037e70][0m
+[0m[1maws_subnet.edo_private_subnets[2]: Refreshing state... [id=subnet-0553017d92c9fd3f2][0m
+[0m[1maws_subnet.edo_public_subnets[0]: Refreshing state... [id=subnet-0ee240a83c9b3137b][0m
+[0m[1maws_subnet.edo_public_subnets[1]: Refreshing state... [id=subnet-098f475a33c58fecf][0m
+[0m[1maws_subnet.edo_public_subnets[2]: Refreshing state... [id=subnet-0acbc523131a85a24][0m
+[0m[1maws_security_group.edo_rds_sg01: Refreshing state... [id=sg-038fb3ba3b2b87806][0m
+[0m[1maws_security_group.edo_alb_sg01: Refreshing state... [id=sg-0db9d2b61d6a57692][0m
+[0m[1maws_vpc_endpoint.edo_vpce_s3_gw01: Refreshing state... [id=vpce-09b3fdbd70ca08afd][0m
+[0m[1maws_route.edo_public_default_route: Refreshing state... [id=r-rtb-0c011632e1245b7df1080289494][0m
+[0m[1maws_vpc_security_group_egress_rule.ec2_all_traffic_ipv4: Refreshing state... [id=sgr-0a1da00661b7cb653][0m
+[0m[1maws_vpc_security_group_ingress_rule.edo_vpce_ingress: Refreshing state... [id=sgr-06f3baa10ff478fe3][0m
+[0m[1maws_vpc_security_group_egress_rule.vpce_all_traffic_ipv4: Refreshing state... [id=sgr-0594eed0bfd373dab][0m
+[0m[1maws_launch_template.edo_LT: Refreshing state... [id=lt-01a11710f5da27f9e][0m
+[0m[1maws_vpc_endpoint.edo_vpce_kms01: Refreshing state... [id=vpce-01fa3008fae000e4d][0m
+[0m[1maws_db_subnet_group.edo_rds_subnet_group01: Refreshing state... [id=edo-rds-subnet-group01][0m
+[0m[1maws_vpc_endpoint.edo_vpce_secrets01: Refreshing state... [id=vpce-0c1cf36932338daa8][0m
+[0m[1maws_vpc_endpoint.edo_vpce_logs01: Refreshing state... [id=vpce-089066de964c804ae][0m
+[0m[1maws_vpc_endpoint.edo_vpce_ec2messages01: Refreshing state... [id=vpce-003daca939823da52][0m
+[0m[1maws_vpc_endpoint.edo_vpce_ssm01: Refreshing state... [id=vpce-0233ea72abfc5c5be][0m
+[0m[1maws_route_table_association.edo_private_rta[0]: Refreshing state... [id=rtbassoc-03548ed1fe1d7d05a][0m
+[0m[1maws_route_table_association.edo_private_rta[1]: Refreshing state... [id=rtbassoc-0aebbdad6ede3a38d][0m
+[0m[1maws_route_table_association.edo_private_rta[2]: Refreshing state... [id=rtbassoc-09f510b051bb01fd4][0m
+[0m[1maws_vpc_endpoint.edo_vpce_ssmmessages01: Refreshing state... [id=vpce-0034fe37f1fc771f7][0m
+[0m[1maws_vpc_security_group_egress_rule.rds_all_traffic_ipv4: Refreshing state... [id=sgr-07efe8dcc32b4bfaf][0m
+[0m[1maws_vpc_security_group_ingress_rule.edo_rds_mysql: Refreshing state... [id=sgr-0759af94317e2ddc8][0m
+[0m[1maws_nat_gateway.edo_nat01: Refreshing state... [id=nat-0bea4dce11d3bfa4e][0m
+[0m[1maws_route_table_association.edo_public_rta[2]: Refreshing state... [id=rtbassoc-0d348dc68ead804ba][0m
+[0m[1maws_route_table_association.edo_public_rta[0]: Refreshing state... [id=rtbassoc-0c110107eb75b8566][0m
+[0m[1maws_route_table_association.edo_public_rta[1]: Refreshing state... [id=rtbassoc-08033c96732264bfd][0m
+[0m[1maws_vpc_security_group_egress_rule.edo_alb_egress: Refreshing state... [id=sgr-03f409bbc4e48bffc][0m
+[0m[1maws_vpc_security_group_ingress_rule.edo_ec2_ingress_from_alb01: Refreshing state... [id=sgr-0215f1075a299f7cf][0m
+[0m[1maws_vpc_security_group_ingress_rule.edo_alb_ingres_443: Refreshing state... [id=sgr-04666e89b17d80937][0m
+[0m[1maws_vpc_security_group_ingress_rule.edo_alb_ingres_80: Refreshing state... [id=sgr-08dd30f9acedfcd4e][0m
+[0m[1mmodule.shinjuku_tgw.aws_ec2_transit_gateway_vpc_attachment.this["tokyo_vpc01"]: Refreshing state... [id=tgw-attach-0bd2646d516dcf507][0m
+[0m[1maws_s3_bucket_ownership_controls.edo_alb_logs_owner01[0]: Refreshing state... [id=edo-alb-logs-lh-891377135193][0m
+[0m[1maws_s3_bucket_policy.edo_alb_logs_policy01[0]: Refreshing state... [id=edo-alb-logs-lh-891377135193][0m
+[0m[1maws_lb.edo_alb01: Refreshing state... [id=arn:aws:elasticloadbalancing:ap-northeast-1:891377135193:loadbalancer/app/edo-alb01/0544ec3aa5e16e76][0m
+[0m[1maws_s3_bucket_public_access_block.edo_alb_logs_pab01[0]: Refreshing state... [id=edo-alb-logs-lh-891377135193][0m
+[0m[1maws_route.edo_private_default_route: Refreshing state... [id=r-rtb-0a99b396cdd9bd0b21080289494][0m
+[0m[1maws_db_instance.edo_rds01: Refreshing state... [id=db-KLNJODUOKFUGHPMQZJV553P4CM][0m
+[0m[1maws_ssm_parameter.edo_db_endpoint_param: Refreshing state... [id=/edo/db/endpoint][0m
+[0m[1maws_ssm_parameter.edo_db_port_param: Refreshing state... [id=/edo/db/port][0m
+[0m[1maws_cloudwatch_dashboard.edo_dashboard01: Refreshing state... [id=edo-dashboard01][0m
+[0m[1maws_cloudwatch_metric_alarm.edo_alb_5xx_alarm01: Refreshing state... [id=edo-alb-5xx-alarm01][0m
+[0m[1maws_lb_listener.edo_http_listener01: Refreshing state... [id=arn:aws:elasticloadbalancing:ap-northeast-1:891377135193:listener/app/edo-alb01/0544ec3aa5e16e76/d9344a686ce87265][0m
+[0m[1maws_cloudfront_distribution.edo_cf01: Refreshing state... [id=E2HX0R7PODVBVI][0m
+[0m[1mnull_resource.edo_invalidate_index01: Refreshing state... [id=6110025993343220864][0m
+
+[1m[36mNote:[0m[1m Objects have changed outside of Terraform
+[0m
+Terraform detected the following changes made outside of Terraform since the
+last "terraform apply" which may have affected this plan:
+
+[1m  # aws_ec2_transit_gateway_peering_attachment.shinjuku_to_liberdade[0][0m has been deleted
+[0m  [31m-[0m[0m resource "aws_ec2_transit_gateway_peering_attachment" "shinjuku_to_liberdade" {
+      [31m-[0m[0m id                      = "tgw-attach-046b512e8f5f3703b" [90m-> null[0m[0m
+        tags                    = {
+            "Name" = "shinjuku-to-liberdade-peer01"
+        }
+        [90m# (5 unchanged attributes hidden)[0m[0m
+    }
+
+
+Unless you have made equivalent changes to your configuration, or ignored the
+relevant attributes using ignore_changes, the following plan may include
+actions to undo or respond to these changes.
+[90m
+─────────────────────────────────────────────────────────────────────────────[0m
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  [32m+[0m create[0m
+[31m-[0m/[32m+[0m destroy and then create replacement[0m
+
+Terraform will perform the following actions:
+
+[1m  # aws_autoscaling_group.edo_asg[0m will be created
+[0m  [32m+[0m[0m resource "aws_autoscaling_group" "edo_asg" {
+      [32m+[0m[0m arn                              = (known after apply)
+      [32m+[0m[0m availability_zones               = (known after apply)
+      [32m+[0m[0m default_cooldown                 = (known after apply)
+      [32m+[0m[0m desired_capacity                 = 6
+      [32m+[0m[0m enabled_metrics                  = [
+          [32m+[0m[0m "GroupDesiredCapacity",
+          [32m+[0m[0m "GroupInServiceInstances",
+          [32m+[0m[0m "GroupMaxSize",
+          [32m+[0m[0m "GroupMinSize",
+          [32m+[0m[0m "GroupTotalInstances",
+        ]
+      [32m+[0m[0m force_delete                     = true
+      [32m+[0m[0m force_delete_warm_pool           = false
+      [32m+[0m[0m health_check_grace_period        = 300
+      [32m+[0m[0m health_check_type                = "ELB"
+      [32m+[0m[0m id                               = (known after apply)
+      [32m+[0m[0m ignore_failed_scaling_activities = false
+      [32m+[0m[0m load_balancers                   = (known after apply)
+      [32m+[0m[0m max_size                         = 9
+      [32m+[0m[0m metrics_granularity              = "1Minute"
+      [32m+[0m[0m min_size                         = 3
+      [32m+[0m[0m name                             = (known after apply)
+      [32m+[0m[0m name_prefix                      = "edo-asg-"
+      [32m+[0m[0m predicted_capacity               = (known after apply)
+      [32m+[0m[0m protect_from_scale_in            = false
+      [32m+[0m[0m region                           = "ap-northeast-1"
+      [32m+[0m[0m service_linked_role_arn          = (known after apply)
+      [32m+[0m[0m target_group_arns                = (known after apply)
+      [32m+[0m[0m vpc_zone_identifier              = [
+          [32m+[0m[0m "subnet-0258762d69aea7ff4",
+          [32m+[0m[0m "subnet-0553017d92c9fd3f2",
+          [32m+[0m[0m "subnet-0b6609f1861037e70",
+        ]
+      [32m+[0m[0m wait_for_capacity_timeout        = "10m"
+      [32m+[0m[0m warm_pool_size                   = (known after apply)
+
+      [32m+[0m[0m availability_zone_distribution (known after apply)
+
+      [32m+[0m[0m capacity_reservation_specification (known after apply)
+
+      [32m+[0m[0m initial_lifecycle_hook {
+          [32m+[0m[0m default_result          = "CONTINUE"
+          [32m+[0m[0m heartbeat_timeout       = 300
+          [32m+[0m[0m lifecycle_transition    = "autoscaling:EC2_INSTANCE_LAUNCHING"
+          [32m+[0m[0m name                    = "instance-protection-launch"
+            [90m# (3 unchanged attributes hidden)[0m[0m
+        }
+      [32m+[0m[0m initial_lifecycle_hook {
+          [32m+[0m[0m default_result          = "CONTINUE"
+          [32m+[0m[0m heartbeat_timeout       = 300
+          [32m+[0m[0m lifecycle_transition    = "autoscaling:EC2_INSTANCE_TERMINATING"
+          [32m+[0m[0m name                    = "scale-in-protection"
+            [90m# (3 unchanged attributes hidden)[0m[0m
+        }
+
+      [32m+[0m[0m launch_template {
+          [32m+[0m[0m id      = "lt-01a11710f5da27f9e"
+          [32m+[0m[0m name    = (known after apply)
+          [32m+[0m[0m version = "$Latest"
+        }
+
+      [32m+[0m[0m mixed_instances_policy (known after apply)
+
+      [32m+[0m[0m tag {
+          [32m+[0m[0m key                 = "Environment"
+          [32m+[0m[0m propagate_at_launch = true
+          [32m+[0m[0m value               = "Production"
+        }
+      [32m+[0m[0m tag {
+          [32m+[0m[0m key                 = "Name"
+          [32m+[0m[0m propagate_at_launch = true
+          [32m+[0m[0m value               = "edo-app-instance"
+        }
+      [32m+[0m[0m tag {
+          [32m+[0m[0m key                 = "Project"
+          [32m+[0m[0m propagate_at_launch = true
+          [32m+[0m[0m value               = "edo"
+        }
+
+      [32m+[0m[0m traffic_source (known after apply)
+    }
+
+[1m  # aws_autoscaling_policy.edo_cpu_target_policy[0m will be created
+[0m  [32m+[0m[0m resource "aws_autoscaling_policy" "edo_cpu_target_policy" {
+      [32m+[0m[0m arn                       = (known after apply)
+      [32m+[0m[0m autoscaling_group_name    = (known after apply)
+      [32m+[0m[0m enabled                   = true
+      [32m+[0m[0m estimated_instance_warmup = 120
+      [32m+[0m[0m id                        = (known after apply)
+      [32m+[0m[0m metric_aggregation_type   = (known after apply)
+      [32m+[0m[0m name                      = "edo-cpu-target"
+      [32m+[0m[0m policy_type               = "TargetTrackingScaling"
+      [32m+[0m[0m region                    = "ap-northeast-1"
+
+      [32m+[0m[0m target_tracking_configuration {
+          [32m+[0m[0m disable_scale_in = false
+          [32m+[0m[0m target_value     = 70
+
+          [32m+[0m[0m predefined_metric_specification {
+              [32m+[0m[0m predefined_metric_type = "ASGAverageCPUUtilization"
+            }
+        }
+    }
+
+[1m  # aws_cloudwatch_log_group.edo_waf_log_group01[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_cloudwatch_log_group" "edo_waf_log_group01" {
+      [32m+[0m[0m arn                         = (known after apply)
+      [32m+[0m[0m deletion_protection_enabled = (known after apply)
+      [32m+[0m[0m id                          = (known after apply)
+      [32m+[0m[0m log_group_class             = (known after apply)
+      [32m+[0m[0m name                        = "aws-waf-logs-edo-webacl01"
+      [32m+[0m[0m name_prefix                 = (known after apply)
+      [32m+[0m[0m region                      = "ap-northeast-1"
+      [32m+[0m[0m retention_in_days           = 14
+      [32m+[0m[0m skip_destroy                = false
+      [32m+[0m[0m tags                        = {
+          [32m+[0m[0m "Name" = "edo-waf-log-group01"
+        }
+      [32m+[0m[0m tags_all                    = {
+          [32m+[0m[0m "Name" = "edo-waf-log-group01"
+        }
+    }
+
+[1m  # aws_ec2_transit_gateway_peering_attachment.shinjuku_to_liberdade[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_ec2_transit_gateway_peering_attachment" "shinjuku_to_liberdade" {
+      [32m+[0m[0m arn                     = (known after apply)
+      [32m+[0m[0m id                      = (known after apply)
+      [32m+[0m[0m peer_account_id         = (known after apply)
+      [32m+[0m[0m peer_region             = "sa-east-1"
+      [32m+[0m[0m peer_transit_gateway_id = "tgw-08bef2f05c5ac2ea3"
+      [32m+[0m[0m region                  = "ap-northeast-1"
+      [32m+[0m[0m state                   = (known after apply)
+      [32m+[0m[0m tags                    = {
+          [32m+[0m[0m "Name" = "shinjuku-to-liberdade-peer01"
+        }
+      [32m+[0m[0m tags_all                = {
+          [32m+[0m[0m "Name" = "shinjuku-to-liberdade-peer01"
+        }
+      [32m+[0m[0m transit_gateway_id      = "tgw-05ef60ee52d149de9"
+    }
+
+[1m  # aws_ec2_transit_gateway_route_table_association.shinjuku_peer_assoc[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_ec2_transit_gateway_route_table_association" "shinjuku_peer_assoc" {
+      [32m+[0m[0m id                             = (known after apply)
+      [32m+[0m[0m region                         = "ap-northeast-1"
+      [32m+[0m[0m replace_existing_association   = false
+      [32m+[0m[0m resource_id                    = (known after apply)
+      [32m+[0m[0m resource_type                  = (known after apply)
+      [32m+[0m[0m transit_gateway_attachment_id  = (known after apply)
+      [32m+[0m[0m transit_gateway_route_table_id = "tgw-rtb-017fe568b52736155"
+    }
+
+[1m  # aws_ec2_transit_gateway_route_table_propagation.shinjuku_peer_to_vpc[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_ec2_transit_gateway_route_table_propagation" "shinjuku_peer_to_vpc" {
+      [32m+[0m[0m id                             = (known after apply)
+      [32m+[0m[0m region                         = "ap-northeast-1"
+      [32m+[0m[0m resource_id                    = (known after apply)
+      [32m+[0m[0m resource_type                  = (known after apply)
+      [32m+[0m[0m transit_gateway_attachment_id  = (known after apply)
+      [32m+[0m[0m transit_gateway_route_table_id = "tgw-rtb-017fe568b52736155"
+    }
+
+[1m  # aws_lb_target_group.edo_tg01[0m will be created
+[0m  [32m+[0m[0m resource "aws_lb_target_group" "edo_tg01" {
+      [32m+[0m[0m arn                                = (known after apply)
+      [32m+[0m[0m arn_suffix                         = (known after apply)
+      [32m+[0m[0m connection_termination             = (known after apply)
+      [32m+[0m[0m deregistration_delay               = "300"
+      [32m+[0m[0m id                                 = (known after apply)
+      [32m+[0m[0m ip_address_type                    = (known after apply)
+      [32m+[0m[0m lambda_multi_value_headers_enabled = false
+      [32m+[0m[0m load_balancer_arns                 = (known after apply)
+      [32m+[0m[0m load_balancing_algorithm_type      = (known after apply)
+      [32m+[0m[0m load_balancing_anomaly_mitigation  = (known after apply)
+      [32m+[0m[0m load_balancing_cross_zone_enabled  = (known after apply)
+      [32m+[0m[0m name                               = "edo-tg01"
+      [32m+[0m[0m name_prefix                        = (known after apply)
+      [32m+[0m[0m port                               = 80
+      [32m+[0m[0m preserve_client_ip                 = (known after apply)
+      [32m+[0m[0m protocol                           = "HTTP"
+      [32m+[0m[0m protocol_version                   = (known after apply)
+      [32m+[0m[0m proxy_protocol_v2                  = false
+      [32m+[0m[0m region                             = "ap-northeast-1"
+      [32m+[0m[0m slow_start                         = 0
+      [32m+[0m[0m tags                               = {
+          [32m+[0m[0m "Name" = "edo-tg01"
+        }
+      [32m+[0m[0m tags_all                           = {
+          [32m+[0m[0m "Name" = "edo-tg01"
+        }
+      [32m+[0m[0m target_type                        = "instance"
+      [32m+[0m[0m vpc_id                             = "vpc-0a58d2762b7c39e0e"
+
+      [32m+[0m[0m health_check {
+          [32m+[0m[0m enabled             = true
+          [32m+[0m[0m healthy_threshold   = 2
+          [32m+[0m[0m interval            = 30
+          [32m+[0m[0m matcher             = "200-399"
+          [32m+[0m[0m path                = "/health"
+          [32m+[0m[0m port                = "traffic-port"
+          [32m+[0m[0m protocol            = "HTTP"
+          [32m+[0m[0m timeout             = 5
+          [32m+[0m[0m unhealthy_threshold = 2
+        }
+
+      [32m+[0m[0m stickiness (known after apply)
+
+      [32m+[0m[0m target_failover (known after apply)
+
+      [32m+[0m[0m target_group_health (known after apply)
+
+      [32m+[0m[0m target_health_state (known after apply)
+    }
+
+[1m  # aws_route53_record.edo_apex_to_cf01[0m will be created
+[0m  [32m+[0m[0m resource "aws_route53_record" "edo_apex_to_cf01" {
+      [32m+[0m[0m allow_overwrite = (known after apply)
+      [32m+[0m[0m fqdn            = (known after apply)
+      [32m+[0m[0m id              = (known after apply)
+      [32m+[0m[0m name            = "larrryharrisaws.com"
+      [32m+[0m[0m type            = "A"
+      [32m+[0m[0m zone_id         = "Z0825167K1N04S2RCG6V"
+
+      [32m+[0m[0m alias {
+          [32m+[0m[0m evaluate_target_health = false
+          [32m+[0m[0m name                   = "dvq6hw3n1pzb8.cloudfront.net"
+          [32m+[0m[0m zone_id                = "Z2FDTNDATAQYW2"
+        }
+    }
+
+[1m  # aws_route53_record.edo_app_to_cf01[0m will be created
+[0m  [32m+[0m[0m resource "aws_route53_record" "edo_app_to_cf01" {
+      [32m+[0m[0m allow_overwrite = (known after apply)
+      [32m+[0m[0m fqdn            = (known after apply)
+      [32m+[0m[0m id              = (known after apply)
+      [32m+[0m[0m name            = "app.larrryharrisaws.com"
+      [32m+[0m[0m type            = "A"
+      [32m+[0m[0m zone_id         = "Z0825167K1N04S2RCG6V"
+
+      [32m+[0m[0m alias {
+          [32m+[0m[0m evaluate_target_health = false
+          [32m+[0m[0m name                   = "dvq6hw3n1pzb8.cloudfront.net"
+          [32m+[0m[0m zone_id                = "Z2FDTNDATAQYW2"
+        }
+    }
+
+[1m  # aws_secretsmanager_secret.edo_db_secret01[0m will be created
+[0m  [32m+[0m[0m resource "aws_secretsmanager_secret" "edo_db_secret01" {
+      [32m+[0m[0m arn                            = (known after apply)
+      [32m+[0m[0m force_overwrite_replica_secret = false
+      [32m+[0m[0m id                             = (known after apply)
+      [32m+[0m[0m name                           = "edo/rds/mysql"
+      [32m+[0m[0m name_prefix                    = (known after apply)
+      [32m+[0m[0m policy                         = (known after apply)
+      [32m+[0m[0m recovery_window_in_days        = 0
+      [32m+[0m[0m region                         = "ap-northeast-1"
+      [32m+[0m[0m tags_all                       = (known after apply)
+
+      [32m+[0m[0m replica (known after apply)
+    }
+
+[1m  # aws_secretsmanager_secret_version.edo_db_secret_version01[0m will be created
+[0m  [32m+[0m[0m resource "aws_secretsmanager_secret_version" "edo_db_secret_version01" {
+      [32m+[0m[0m arn                  = (known after apply)
+      [32m+[0m[0m has_secret_string_wo = (known after apply)
+      [32m+[0m[0m id                   = (known after apply)
+      [32m+[0m[0m region               = "ap-northeast-1"
+      [32m+[0m[0m secret_id            = (known after apply)
+      [32m+[0m[0m secret_string        = (sensitive value)
+      [32m+[0m[0m secret_string_wo     = (write-only attribute)
+      [32m+[0m[0m version_id           = (known after apply)
+      [32m+[0m[0m version_stages       = (known after apply)
+    }
+
+[1m  # null_resource.edo_invalidate_index01[0m must be [1m[31mreplaced[0m
+[0m[31m-[0m/[32m+[0m[0m resource "null_resource" "edo_invalidate_index01" {
+      [33m~[0m[0m id       = "6110025993343220864" -> (known after apply)
+      [33m~[0m[0m triggers = { [31m# forces replacement[0m[0m
+          [33m~[0m[0m "always_run" = "2026-01-29T14:19:45Z" -> (known after apply)
+        }
+    }
+
+[1mPlan:[0m [0m12 to add, 0 to change, 1 to destroy.
+
+Changes to Outputs:
+  [32m+[0m[0m edo_target_group_arn      = (known after apply)
+[90m
+─────────────────────────────────────────────────────────────────────────────[0m
+
+Note: You didn't use the -out option to save this plan, so Terraform can't
+guarantee to take exactly these actions if you run "terraform apply" now.

@@ -9,6 +9,10 @@ resource "aws_launch_template" "gru_LT" {
 
   user_data = filebase64("96-1a_user_data.sh")   # make sure this file exists!
 
+  iam_instance_profile {
+    name = aws_iam_instance_profile.gru_instance_profile01.name   # ← ADD THIS BLOCK
+  }
+
   tag_specifications {
     resource_type = "instance"
     tags = {

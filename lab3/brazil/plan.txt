@@ -1,0 +1,290 @@
+[0m[1mmodule.liberdade_tgw.aws_ec2_transit_gateway.this[0]: Refreshing state... [id=tgw-0145f5994415d1b87][0m
+[0m[1mdata.aws_caller_identity.gru_self01: Reading...[0m[0m
+[0m[1mdata.aws_ec2_managed_prefix_list.gru_cf_origin_facing01: Reading...[0m[0m
+[0m[1mdata.aws_region.gru_region01: Reading...[0m[0m
+[0m[1maws_iam_role.gru_ec2_role01: Refreshing state... [id=gro-ec2-role01][0m
+[0m[1maws_sns_topic.gru_sns_topic01: Refreshing state... [id=arn:aws:sns:sa-east-1:891377135193:gro-db-incidents][0m
+[0m[1maws_vpc.gru_vpc01: Refreshing state... [id=vpc-00fa7b839a52ecb4e][0m
+[0m[1maws_eip.gru_nat_eip01: Refreshing state... [id=eipalloc-02c150ca556831a7c][0m
+[0m[1mdata.aws_region.gru_region01: Read complete after 0s [id=sa-east-1][0m
+[0m[1maws_s3_bucket.gru_alb_logs_bucket01[0]: Refreshing state... [id=gru-alb-logs-lh-891377135193][0m
+[0m[1mdata.aws_caller_identity.gru_self01: Read complete after 0s [id=891377135193][0m
+[0m[1mmodule.liberdade_tgw.aws_ec2_tag.this["Environment"]: Refreshing state... [id=tgw-rtb-0d112f37369eb59c5,Environment][0m
+[0m[1mmodule.liberdade_tgw.aws_ec2_tag.this["Name"]: Refreshing state... [id=tgw-rtb-0d112f37369eb59c5,Name][0m
+[0m[1mmodule.liberdade_tgw.aws_ec2_transit_gateway_route_table.this[0]: Refreshing state... [id=tgw-rtb-0b87b4a56441f4dcf][0m
+[0m[1maws_iam_role_policy_attachment.gru_ec2_cw_attach: Refreshing state... [id=gro-ec2-role01/arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy][0m
+[0m[1maws_iam_role_policy.gru_ec2_secrets_access: Refreshing state... [id=gro-ec2-role01:secrets-manager-gru-rds][0m
+[0m[1maws_iam_role_policy_attachment.gru_ec2_ssm_attach: Refreshing state... [id=gro-ec2-role01/arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore][0m
+[0m[1mdata.aws_ec2_managed_prefix_list.gru_cf_origin_facing01: Read complete after 1s [id=pl-5da64334][0m
+[0m[1maws_sns_topic_subscription.gru_sns_sub01: Refreshing state... [id=arn:aws:sns:sa-east-1:891377135193:gro-db-incidents:32362eaf-220e-45bc-b080-e8f9bc9b9dce][0m
+[0m[1maws_cloudwatch_metric_alarm.gru_db_alarm01: Refreshing state... [id=gro-db-connection-failure][0m
+[0m[1maws_internet_gateway.gru_igw01: Refreshing state... [id=igw-0762284e9db9c48cc][0m
+[0m[1maws_subnet.gru_private_subnets[0]: Refreshing state... [id=subnet-0f834f314d9d85e95][0m
+[0m[1maws_route_table.gru_private_rt01: Refreshing state... [id=rtb-0f30dead4c3b92488][0m
+[0m[1maws_subnet.gru_private_subnets[1]: Refreshing state... [id=subnet-037792e9fe550c300][0m
+[0m[1maws_security_group.gru_rds_sg01: Refreshing state... [id=sg-083e212424708955e][0m
+[0m[1maws_security_group.gru_vpce_sg01: Refreshing state... [id=sg-0a4681e28127bdd13][0m
+[0m[1maws_lb_target_group.gru_tg01: Refreshing state... [id=arn:aws:elasticloadbalancing:sa-east-1:891377135193:targetgroup/gro-tg01/899033e3909da430][0m
+[0m[1maws_security_group.gru_alb_sg01: Refreshing state... [id=sg-0f3d9f26a9a1c0358][0m
+[0m[1maws_route_table.gru_public_rt01: Refreshing state... [id=rtb-03097c4cb978d6d5d][0m
+[0m[1maws_security_group.gru_ec2_sg01: Refreshing state... [id=sg-008c6e7f252134ec8][0m
+[0m[1maws_subnet.gru_public_subnets[0]: Refreshing state... [id=subnet-00a6a2f711f3867c5][0m
+[0m[1maws_subnet.gru_public_subnets[1]: Refreshing state... [id=subnet-08e8a979016ec41d0][0m
+[0m[1maws_route_table_association.gru_private_rta[0]: Refreshing state... [id=rtbassoc-08b9e4e56016965e8][0m
+[0m[1maws_route_table_association.gru_private_rta[1]: Refreshing state... [id=rtbassoc-01e1d40d51beb8e14][0m
+[0m[1mmodule.liberdade_tgw.aws_ec2_transit_gateway_vpc_attachment.this["sp_vpc01"]: Refreshing state... [id=tgw-attach-0a83650aa10caf3a9][0m
+[0m[1maws_vpc_security_group_egress_rule.vpce_all_traffic_ipv4: Refreshing state... [id=sgr-02f87b268f7925515][0m
+[0m[1maws_security_group_rule.shinjuku_rds_ingress_from_liberdade01: Refreshing state... [id=sgrule-3157820060][0m
+[0m[1maws_vpc_security_group_egress_rule.rds_all_traffic_ipv4: Refreshing state... [id=sgr-0f743a04023b48aad][0m
+[0m[1maws_vpc_security_group_ingress_rule.gru_alb_ingres_443: Refreshing state... [id=sgr-0e57c9df97e6092f3][0m
+[0m[1maws_vpc_security_group_egress_rule.gru_alb_egress: Refreshing state... [id=sgr-0af700012e5941ada][0m
+[0m[1maws_vpc_security_group_ingress_rule.gru_alb_ingres_80: Refreshing state... [id=sgr-02c883bd8e0283b6b][0m
+[0m[1maws_route.gru_public_default_route: Refreshing state... [id=r-rtb-03097c4cb978d6d5d1080289494][0m
+[0m[1maws_nat_gateway.gru_nat01: Refreshing state... [id=nat-089d569fb5d1b8f7d][0m
+[0m[1maws_route_table_association.gru_public_rta[0]: Refreshing state... [id=rtbassoc-0a2411dca0c83e54b][0m
+[0m[1maws_route_table_association.gru_public_rta[1]: Refreshing state... [id=rtbassoc-0ff9730c35b05ef42][0m
+[0m[1maws_vpc_security_group_ingress_rule.gru_ec2_ingress_from_alb01: Refreshing state... [id=sgr-04efdd9d62629b139][0m
+[0m[1maws_vpc_security_group_ingress_rule.gru_rds_mysql: Refreshing state... [id=sgr-0c8a29f9d8bef4e8a][0m
+[0m[1maws_vpc_security_group_egress_rule.ec2_all_traffic_ipv4: Refreshing state... [id=sgr-0b4841f2960ecc16f][0m
+[0m[1maws_launch_template.gru_LT: Refreshing state... [id=lt-0a1620603d26736dc][0m
+[0m[1maws_vpc_security_group_ingress_rule.gru_vpce_ingress: Refreshing state... [id=sgr-0b6abf1438190aa6b][0m
+[0m[1maws_route.gru_private_default_route: Refreshing state... [id=r-rtb-0f30dead4c3b924881080289494][0m
+[0m[1maws_s3_bucket_ownership_controls.gru_alb_logs_owner01[0]: Refreshing state... [id=gru-alb-logs-lh-891377135193][0m
+[0m[1maws_s3_bucket_public_access_block.gru_alb_logs_pab01[0]: Refreshing state... [id=gru-alb-logs-lh-891377135193][0m
+[0m[1maws_s3_bucket_policy.gru_alb_logs_policy01[0]: Refreshing state... [id=gru-alb-logs-lh-891377135193][0m
+[0m[1maws_lb.gru_alb01: Refreshing state... [id=arn:aws:elasticloadbalancing:sa-east-1:891377135193:loadbalancer/app/gro-alb01/304b05e0c4c32bf3][0m
+[0m[1maws_autoscaling_group.gru_asg: Refreshing state... [id=gro-asg-20260129143024822800000005][0m
+[0m[1maws_cloudwatch_dashboard.gru_dashboard01: Refreshing state... [id=gro-dashboard01][0m
+[0m[1maws_cloudwatch_metric_alarm.gru_alb_5xx_alarm01: Refreshing state... [id=gro-alb-5xx-alarm01][0m
+[0m[1maws_autoscaling_policy.gru_cpu_target_policy: Refreshing state... [id=gro-cpu-target][0m
+
+[1m[36mNote:[0m[1m Objects have changed outside of Terraform
+[0m
+Terraform detected the following changes made outside of Terraform since the
+last "terraform apply" which may have affected this plan:
+
+[1m  # aws_iam_role.gru_ec2_role01[0m has been deleted
+[0m  [31m-[0m[0m resource "aws_iam_role" "gru_ec2_role01" {
+      [31m-[0m[0m id                    = "gro-ec2-role01" [90m-> null[0m[0m
+      [31m-[0m[0m name                  = "gro-ec2-role01" [90m-> null[0m[0m
+        tags                  = {}
+        [90m# (12 unchanged attributes hidden)[0m[0m
+
+        [90m# (1 unchanged block hidden)[0m[0m
+    }
+
+
+Unless you have made equivalent changes to your configuration, or ignored the
+relevant attributes using ignore_changes, the following plan may include
+actions to undo or respond to these changes.
+[90m
+─────────────────────────────────────────────────────────────────────────────[0m
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  [32m+[0m create[0m
+
+Terraform will perform the following actions:
+
+[1m  # aws_cloudwatch_log_group.gru_log_group01[0m will be created
+[0m  [32m+[0m[0m resource "aws_cloudwatch_log_group" "gru_log_group01" {
+      [32m+[0m[0m arn                         = (known after apply)
+      [32m+[0m[0m deletion_protection_enabled = (known after apply)
+      [32m+[0m[0m id                          = (known after apply)
+      [32m+[0m[0m log_group_class             = (known after apply)
+      [32m+[0m[0m name                        = "/aws/ec2/gro-rds-app"
+      [32m+[0m[0m name_prefix                 = (known after apply)
+      [32m+[0m[0m region                      = "sa-east-1"
+      [32m+[0m[0m retention_in_days           = 7
+      [32m+[0m[0m skip_destroy                = false
+      [32m+[0m[0m tags                        = {
+          [32m+[0m[0m "Name" = "gro-log-group01"
+        }
+      [32m+[0m[0m tags_all                    = {
+          [32m+[0m[0m "Name" = "gro-log-group01"
+        }
+    }
+
+[1m  # aws_iam_instance_profile.gru_instance_profile01[0m will be created
+[0m  [32m+[0m[0m resource "aws_iam_instance_profile" "gru_instance_profile01" {
+      [32m+[0m[0m arn         = (known after apply)
+      [32m+[0m[0m create_date = (known after apply)
+      [32m+[0m[0m id          = (known after apply)
+      [32m+[0m[0m name        = "gro-instance-profile01"
+      [32m+[0m[0m name_prefix = (known after apply)
+      [32m+[0m[0m path        = "/"
+      [32m+[0m[0m role        = "gro-ec2-role01"
+      [32m+[0m[0m tags_all    = (known after apply)
+      [32m+[0m[0m unique_id   = (known after apply)
+    }
+
+[1m  # aws_iam_policy.gru_leastpriv_cwlogs01[0m will be created
+[0m  [32m+[0m[0m resource "aws_iam_policy" "gru_leastpriv_cwlogs01" {
+      [32m+[0m[0m arn              = (known after apply)
+      [32m+[0m[0m attachment_count = (known after apply)
+      [32m+[0m[0m description      = "Least-privilege CloudWatch Logs write for the app log group"
+      [32m+[0m[0m id               = (known after apply)
+      [32m+[0m[0m name             = "gro-lp-cwlogs01"
+      [32m+[0m[0m name_prefix      = (known after apply)
+      [32m+[0m[0m path             = "/"
+      [32m+[0m[0m policy           = (known after apply)
+      [32m+[0m[0m policy_id        = (known after apply)
+      [32m+[0m[0m tags_all         = (known after apply)
+    }
+
+[1m  # aws_iam_policy.gru_leastpriv_read_params01[0m will be created
+[0m  [32m+[0m[0m resource "aws_iam_policy" "gru_leastpriv_read_params01" {
+      [32m+[0m[0m arn              = (known after apply)
+      [32m+[0m[0m attachment_count = (known after apply)
+      [32m+[0m[0m description      = "Least-privilege read for SSM Parameter Store under /gro/db/*"
+      [32m+[0m[0m id               = (known after apply)
+      [32m+[0m[0m name             = "gro-lp-ssm-read01"
+      [32m+[0m[0m name_prefix      = (known after apply)
+      [32m+[0m[0m path             = "/"
+      [32m+[0m[0m policy           = jsonencode(
+            {
+              [32m+[0m[0m Statement = [
+                  [32m+[0m[0m {
+                      [32m+[0m[0m Action   = [
+                          [32m+[0m[0m "ssm:GetParameter",
+                          [32m+[0m[0m "ssm:GetParameters",
+                          [32m+[0m[0m "ssm:GetParametersByPath",
+                        ]
+                      [32m+[0m[0m Effect   = "Allow"
+                      [32m+[0m[0m Resource = [
+                          [32m+[0m[0m "arn:aws:ssm:sa-east-1:891377135193:parameter/gro/db/*",
+                        ]
+                      [32m+[0m[0m Sid      = "ReadLabDbParams"
+                    },
+                ]
+              [32m+[0m[0m Version   = "2012-10-17"
+            }
+        )
+      [32m+[0m[0m policy_id        = (known after apply)
+      [32m+[0m[0m tags_all         = (known after apply)
+    }
+
+[1m  # aws_iam_policy.gru_leastpriv_read_secret01[0m will be created
+[0m  [32m+[0m[0m resource "aws_iam_policy" "gru_leastpriv_read_secret01" {
+      [32m+[0m[0m arn              = (known after apply)
+      [32m+[0m[0m attachment_count = (known after apply)
+      [32m+[0m[0m description      = "Least-privilege read for the lab DB secret"
+      [32m+[0m[0m id               = (known after apply)
+      [32m+[0m[0m name             = "gro-lp-secrets-read01"
+      [32m+[0m[0m name_prefix      = (known after apply)
+      [32m+[0m[0m path             = "/"
+      [32m+[0m[0m policy           = jsonencode(
+            {
+              [32m+[0m[0m Statement = [
+                  [32m+[0m[0m {
+                      [32m+[0m[0m Action   = [
+                          [32m+[0m[0m "secretsmanager:GetSecretValue",
+                          [32m+[0m[0m "secretsmanager:DescribeSecret",
+                        ]
+                      [32m+[0m[0m Effect   = "Allow"
+                      [32m+[0m[0m Resource = "arn:aws:secretsmanager:sa-east-1:891377135193:secret:gro/rds/mysql*"
+                      [32m+[0m[0m Sid      = "ReadOnlyLabSecret"
+                    },
+                ]
+              [32m+[0m[0m Version   = "2012-10-17"
+            }
+        )
+      [32m+[0m[0m policy_id        = (known after apply)
+      [32m+[0m[0m tags_all         = (known after apply)
+    }
+
+[1m  # aws_iam_role.gru_ec2_role01[0m will be created
+[0m  [32m+[0m[0m resource "aws_iam_role" "gru_ec2_role01" {
+      [32m+[0m[0m arn                   = (known after apply)
+      [32m+[0m[0m assume_role_policy    = jsonencode(
+            {
+              [32m+[0m[0m Statement = [
+                  [32m+[0m[0m {
+                      [32m+[0m[0m Action    = "sts:AssumeRole"
+                      [32m+[0m[0m Effect    = "Allow"
+                      [32m+[0m[0m Principal = {
+                          [32m+[0m[0m Service = "ec2.amazonaws.com"
+                        }
+                    },
+                ]
+              [32m+[0m[0m Version   = "2012-10-17"
+            }
+        )
+      [32m+[0m[0m create_date           = (known after apply)
+      [32m+[0m[0m force_detach_policies = false
+      [32m+[0m[0m id                    = (known after apply)
+      [32m+[0m[0m managed_policy_arns   = (known after apply)
+      [32m+[0m[0m max_session_duration  = 3600
+      [32m+[0m[0m name                  = "gro-ec2-role01"
+      [32m+[0m[0m name_prefix           = (known after apply)
+      [32m+[0m[0m path                  = "/"
+      [32m+[0m[0m tags_all              = (known after apply)
+      [32m+[0m[0m unique_id             = (known after apply)
+
+      [32m+[0m[0m inline_policy (known after apply)
+    }
+
+[1m  # aws_iam_role_policy.gru_ec2_secrets_access[0m will be created
+[0m  [32m+[0m[0m resource "aws_iam_role_policy" "gru_ec2_secrets_access" {
+      [32m+[0m[0m id          = (known after apply)
+      [32m+[0m[0m name        = "secrets-manager-gru-rds"
+      [32m+[0m[0m name_prefix = (known after apply)
+      [32m+[0m[0m policy      = jsonencode(
+            {
+              [32m+[0m[0m Statement = [
+                  [32m+[0m[0m {
+                      [32m+[0m[0m Action   = [
+                          [32m+[0m[0m "secretsmanager:GetSecretValue",
+                        ]
+                      [32m+[0m[0m Effect   = "Allow"
+                      [32m+[0m[0m Resource = "arn:aws:secretsmanager:us-east-1:891377135193:secret:bos/rds/mysql*"
+                      [32m+[0m[0m Sid      = "ReadSpecificSecret"
+                    },
+                ]
+              [32m+[0m[0m Version   = "2012-10-17"
+            }
+        )
+      [32m+[0m[0m role        = (known after apply)
+    }
+
+[1m  # aws_iam_role_policy_attachment.gru_attach_lp_cwlogs01[0m will be created
+[0m  [32m+[0m[0m resource "aws_iam_role_policy_attachment" "gru_attach_lp_cwlogs01" {
+      [32m+[0m[0m id         = (known after apply)
+      [32m+[0m[0m policy_arn = (known after apply)
+      [32m+[0m[0m role       = "gro-ec2-role01"
+    }
+
+[1m  # aws_iam_role_policy_attachment.gru_attach_lp_params01[0m will be created
+[0m  [32m+[0m[0m resource "aws_iam_role_policy_attachment" "gru_attach_lp_params01" {
+      [32m+[0m[0m id         = (known after apply)
+      [32m+[0m[0m policy_arn = (known after apply)
+      [32m+[0m[0m role       = "gro-ec2-role01"
+    }
+
+[1m  # aws_iam_role_policy_attachment.gru_attach_lp_secret01[0m will be created
+[0m  [32m+[0m[0m resource "aws_iam_role_policy_attachment" "gru_attach_lp_secret01" {
+      [32m+[0m[0m id         = (known after apply)
+      [32m+[0m[0m policy_arn = (known after apply)
+      [32m+[0m[0m role       = "gro-ec2-role01"
+    }
+
+[1m  # aws_iam_role_policy_attachment.gru_ec2_cw_attach[0m will be created
+[0m  [32m+[0m[0m resource "aws_iam_role_policy_attachment" "gru_ec2_cw_attach" {
+      [32m+[0m[0m id         = (known after apply)
+      [32m+[0m[0m policy_arn = "arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy"
+      [32m+[0m[0m role       = "gro-ec2-role01"
+    }
+
+[1m  # aws_iam_role_policy_attachment.gru_ec2_ssm_attach[0m will be created
+[0m  [32m+[0m[0m resource "aws_iam_role_policy_attachment" "gru_ec2_ssm_attach" {
+      [32m+[0m[0m id         = (known after apply)
+      [32m+[0m[0m policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
+      [32m+[0m[0m role       = "gro-ec2-role01"
+    }
+
+[1mPlan:[0m [0m12 to add, 0 to change, 0 to destroy.
+[90m
+─────────────────────────────────────────────────────────────────────────────[0m
+
+Note: You didn't use the -out option to save this plan, so Terraform can't
+guarantee to take exactly these actions if you run "terraform apply" now.

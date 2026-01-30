@@ -1,83 +1,12 @@
-############################################
-# Hosted Zone (optional creation)
-############################################
-
-# Explanation: A hosted zone is like claiming Kashyyyk in DNS—names here become law across the galaxy.
-resource "aws_route53_zone" "gru_zone01" {
-  count = var.manage_route53_in_terraform ? 1 : 0
-
-  name = local.gru_zone_name
-
-  tags = {
-    Name = "${var.project_name}-zone01"
-  }
-}
-
 # ############################################
-# # Route53: Zone Apex (root domain) -> ALB
+# # S3 bucket for ALB access logs
 # ############################################
 
-# # Explanation: The zone apex is the throne room—edo-growl.com itself should lead to the ALB.
-# resource "aws_route53_record" "gru_apex_alias01" {
-#   zone_id = local.gru_zone_id
-#   name    = var.domain_name
-#   type    = "A"
-
-#   alias {
-#     name                   = aws_lb.gru_alb01.dns_name
-#     zone_id                = aws_lb.gru_alb01.zone_id
-#     evaluate_target_health = true
-#   }
-# }
-
-# # App prefix mapped to ALB
-# resource "aws_route53_record" "gru_app_alias01" {
-#   zone_id = local.gru_zone_id
-#   name    = local.gru_app_fqdn
-#   type    = "A"
-
-#   alias {
-#     name                   = aws_lb.gru_alb01.dns_name
-#     zone_id                = aws_lb.gru_alb01.zone_id
-#     evaluate_target_health = true
-#   }
-# }
-
-############################################
-# ACM DNS Validation Records
-############################################
-
-# Explanation: ACM asks “prove you own this planet”—DNS validation is edo roaring in the right place.
-# resource "aws_route53_record" "gru_acm_validation_records01" {
-#   allow_overwrite = true
-#   for_each = var.certificate_validation_method == "DNS" ? {
-#     for dvo in aws_acm_certificate.gru_acm_cert01.domain_validation_options :
-#     dvo.domain_name => {
-#       name   = dvo.resource_record_name
-#       type   = dvo.resource_record_type
-#       record = dvo.resource_record_value
-#     }
-#   } : {}
-
-#   zone_id = local.gru_zone_id
-#   name    = each.value.name
-#   type    = each.value.type
-#   ttl     = 60
-
-#   records = [each.value.record]
-# }
-
-
-
-############################################
-# S3 bucket for ALB access logs
-############################################
-
-# Explanation: This bucket is edo’s log vault—every visitor to the ALB leaves footprints here.
+# # Explanation: This bucket is edo’s log vault—every visitor to the ALB leaves footprints here.
 resource "aws_s3_bucket" "gru_alb_logs_bucket01" {
   count = var.enable_alb_access_logs ? 1 : 0
 
-  bucket = "gro-alb-logs-lh-891377135193"
+  bucket = "gru-alb-logs-lh-891377135193"
   # #prevent s3 destroy
   # lifecycle {
   #   prevent_destroy = true
@@ -110,7 +39,7 @@ resource "aws_s3_bucket_ownership_controls" "gru_alb_logs_owner01" {
   }
 }
 
-# Explanation: TLS-only—edo growls at plaintext and throws it out an airlock.
+# # Explanation: TLS-only—edo growls at plaintext and throws it out an airlock.
 resource "aws_s3_bucket_policy" "gru_alb_logs_policy01" {
   count = var.enable_alb_access_logs ? 1 : 0
 

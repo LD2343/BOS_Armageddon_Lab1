@@ -1,47 +1,53 @@
-# Required: Read the São Paulo TGW ID from its remote state
-# Adjust backend config (bucket/key/region/etc.) to match your São Paulo setup
-data "terraform_remote_state" "saopaulo" {
-   backend = "s3"  # or "remote" for Terraform Cloud, etc.
+module "shinjuku_tgw" {
+  source  = "terraform-aws-modules/transit-gateway/aws"
+  version = "~> 3.1"
 
-  config = {
-    bucket = "your-terraform-state-bucket-name"
-    key    = "path/to/saopaulo/terraform.tfstate"  # e.g. "env:/saopaulo/terraform.tfstate"
-    region = "sa-east-1"
-    # dynamodb_table = "terraform-locks"   # if using
-    # profile        = "your-profile"      # if needed
+  name        = "shinjuku-tgw01"
+  description = "Tokyo hub Transit Gateway"
+
+  share_tgw = false
+
+  enable_default_route_table_association = true
+  enable_default_route_table_propagation = true
+
+  vpc_attachments = {
+    tokyo_vpc01 = {
+      vpc_id     = aws_vpc.edo_vpc01.id
+      subnet_ids = aws_subnet.edo_private_subnets[*].id
+      dns_support   = true
+      ipv6_support  = false
+    }
   }
-}
-
-# Explanation: Shinjuku Station is the hub—Tokyo is the data authority.
-resource "aws_ec2_transit_gateway" "shinjuku_tgw01" {
-  description = "shinjuku-tgw01 (Tokyo hub)"
-  tags = { Name = "shinjuku-tgw01" }
-}
-
-# Explanation: Shinjuku connects to the Tokyo VPC—this is the gate to the medical records vault.
-resource "aws_ec2_transit_gateway_vpc_attachment" "shinjuku_attach_tokyo_vpc01" {
-  transit_gateway_id = aws_ec2_transit_gateway.shinjuku_tgw01.id
-  vpc_id             = aws_vpc.edo_vpc01.id
-  subnet_ids         = aws_subnet.edo_private_subnets[*].id
-  tags = { Name = "shinjuku-attach-tokyo-vpc01" }
-}
-
-# Explanation: Shinjuku opens a corridor request to Liberdade—compute may travel, data may not.
-resource "aws_ec2_transit_gateway_peering_attachment" "shinjuku_to_liberdade_peer01" {
-  transit_gateway_id      = aws_ec2_transit_gateway.shinjuku_tgw01.id
-  peer_region             = "sa-east-1"
-  peer_transit_gateway_id = data.terraform_remote_state.saopaulo.outputs.liberdade_tgw_id
 
   tags = {
-    Name              = "shinjuku-to-liberdade-peer01"
-    "peering:from"    = "tokyo"
-    "peering:to"      = "saopaulo"
-    "peering:purpose" = "compute-access-only"
+    Name        = "shinjuku-tgw01"
+    Environment = "hub"
   }
 }
 
-# Output for reference (optional)
-output "shinjuku_tgw_id" {
-  value       = aws_ec2_transit_gateway.shinjuku_tgw01.id
-  description = "Tokyo Transit Gateway ID"
+# Peering attachment – only create when enabled (requester side)
+resource "aws_ec2_transit_gateway_peering_attachment" "shinjuku_to_liberdade" {
+  count = var.enable_tgw_peering ? 1 : 0
+
+  transit_gateway_id      = module.shinjuku_tgw.ec2_transit_gateway_id
+  peer_transit_gateway_id = var.peer_transit_gateway_id
+  peer_region             = var.peer_region
+
+  tags = { Name = "shinjuku-to-liberdade-peer01" }
+}
+
+# Associate peering to default association route table
+resource "aws_ec2_transit_gateway_route_table_association" "shinjuku_peer_assoc" {
+  count = var.enable_tgw_peering ? 1 : 0
+
+  transit_gateway_attachment_id  = length(aws_ec2_transit_gateway_peering_attachment.shinjuku_to_liberdade) > 0 ? aws_ec2_transit_gateway_peering_attachment.shinjuku_to_liberdade[0].id : null
+  transit_gateway_route_table_id = module.shinjuku_tgw.ec2_transit_gateway_association_default_route_table_id
+}
+
+# Propagate peering routes to default propagation route table (Tokyo learns Brazil CIDRs)
+resource "aws_ec2_transit_gateway_route_table_propagation" "shinjuku_peer_to_vpc" {
+  count = var.enable_tgw_peering ? 1 : 0
+
+  transit_gateway_attachment_id  = length(aws_ec2_transit_gateway_peering_attachment.shinjuku_to_liberdade) > 0 ? aws_ec2_transit_gateway_peering_attachment.shinjuku_to_liberdade[0].id : null
+  transit_gateway_route_table_id = module.shinjuku_tgw.ec2_transit_gateway_propagation_default_route_table_id
 }

@@ -52,36 +52,6 @@ variable "ec2_instance_type" {
   default     = "t3.micro"
 }
 
-# variable "db_engine" {
-#   description = "RDS engine."
-#   type        = string
-#   default     = "mysql"
-# }
-
-# variable "db_instance_class" {
-#   description = "RDS instance class."
-#   type        = string
-#   default     = "db.t3.micro"
-# }
-
-# variable "db_name" {
-#   description = "Initial database name."
-#   type        = string
-#   default     = "labdb" # Students can change
-# }
-
-# variable "db_username" {
-#   description = "DB master username (students should use Secrets Manager in 1B/1C)."
-#   type        = string
-#   default     = "admiral" # TODO: student supplies
-# }
-
-# variable "db_password" {
-#   description = "DB master password (DO NOT hardcode in real life; for lab only)."
-#   type        = string
-#   sensitive   = true
-#   default     = "Broth3rH00d" # TODO: student supplies
-# }
 
 variable "sns_email_endpoint" {
   description = "Email for SNS subscription (PagerDuty simulation)."
@@ -89,24 +59,6 @@ variable "sns_email_endpoint" {
   default     = "larrygharris76@gmail.com" # TODO: student supplies
 }
 
-#1c_Bonus_Variables
-variable "domain_name" {
-  description = "Base domain students registered (e.g., chewbacca-growl.com)."
-  type        = string
-  default     = "larrryharrisaws.com"
-}
-
-variable "app_subdomain" {
-  description = "App hostname prefix (e.g., app.chewbacca-growl.com)."
-  type        = string
-  default     = "app"
-}
-
-variable "certificate_validation_method" {
-  description = "ACM validation method. Students can do DNS (Route53) or EMAIL."
-  type        = string
-  default     = "DNS"
-}
 
 variable "enable_waf" {
   description = "Toggle WAF creation."
@@ -138,38 +90,6 @@ variable "enable_alb_access_logs" {
   default     = true # ← choose your preferred default
 }
 
-variable "manage_route53_in_terraform" {
-  description = "Whether to let Terraform manage creation / updates of the Route 53 hosted zone"
-  type        = bool
-  default     = false # ← most people start with true here ### updated to false
-}
-
-variable "waf_log_destination" {
-  description = "Where to send AWS WAFv2 logs: 'cloudwatch', 'firehose', 's3', or 'none'"
-  type        = string
-  default     = "cloudwatch" # or "cloudwatch" if you want it on by default
-  validation {
-    condition     = contains(["cloudwatch", "firehose", "s3", "none"], var.waf_log_destination)
-    error_message = "Valid values are: cloudwatch, firehose, s3, none."
-  }
-}
-
-variable "waf_log_retention_days" {
-  description = "Number of days to retain WAF CloudWatch log events (0 = never expire)"
-  type        = number
-  default     = 14 # ← common sensible default; change as needed
-}
-
-
-variable "route53_hosted_zone_id" {
-  type    = string
-  default = "Z0825167K1N04S2RCG6V"
-
-  validation {
-    condition     = var.route53_hosted_zone_id == "" || can(regex("^[A-Z0-9]{20}$", var.route53_hosted_zone_id))
-    error_message = "route53_hosted_zone_id must be empty or a valid 20-character Route 53 hosted zone ID (e.g. Z0825167K1N04S2RCG6V)."
-  }
-}
 
 variable "alb_access_logs_prefix" {
   type    = string
@@ -181,9 +101,32 @@ variable "alb_access_logs_prefix" {
   }
 }
 
-### Lab 2a
-variable "cloudfront_acm_cert_arn" {
-  description = "ACM certificate ARN in sa-east-1 for CloudFront (covers a4l-class7.com and app.a4l-class7.com)."
+
+
+variable "peer_transit_gateway_id" {
+  description = "ID of the Shinjuku Transit Gateway in ap-northeast-1 (Japan TGW ID)"
   type        = string
-  default     = ""
+  default     = ""   # ← Japan's TGW ID (you can keep or update)
+}
+
+variable "peer_region" {
+  description = "AWS region of the peer Transit Gateway"
+  type        = string
+  default     = "ap-northeast-1"
+}
+
+variable "enable_tgw_peering" {
+  description = "Whether to accept the Transit Gateway peering attachment from Japan"
+  type        = bool
+  default     = false   # ← change to true AFTER Japan creates the peering request
+}
+
+variable "waf_log_destination" {
+  description = "Where to send AWS WAFv2 logs: 'cloudwatch', 'firehose', 's3', or 'none'"
+  type        = string
+  default     = "cloudwatch" # or "cloudwatch" if you want it on by default
+  validation {
+    condition     = contains(["cloudwatch", "firehose", "s3", "none"], var.waf_log_destination)
+    error_message = "Valid values are: cloudwatch, firehose, s3, none."
+  }
 }

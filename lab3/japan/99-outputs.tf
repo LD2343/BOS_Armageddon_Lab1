@@ -111,3 +111,23 @@ output "current_growl_secret" {
   value     = random_password.edo_origin_header_value01.result
   sensitive = true
 }
+
+# output "tgw_id" {
+#   value = module.shinjuku_tgw.ec2_transit_gateway_id
+# }
+
+# output "tgw_association_default_rt_id" {
+#   description = "Default association route table ID"
+#   value       = module.shinjuku_tgw.ec2_transit_gateway_association_default_route_table_id
+# }
+
+# output "tgw_propagation_default_rt_id" {
+#   description = "Default propagation route table ID"
+#   value       = module.shinjuku_tgw.ec2_transit_gateway_propagation_default_route_table_id
+# }
+
+# output "peering_attachment_id" {
+#   description = "Peering attachment ID (requester side)"
+#   value       = length(aws_ec2_transit_gateway_peering_attachment.shinjuku_to_liberdade) > 0 ? aws_ec2_transit_gateway_peering_attachment.shinjuku_to_liberdade[0].id : null
+# }
+

@@ -9,7 +9,7 @@ resource "aws_autoscaling_group" "gru_asg" {
 
   vpc_zone_identifier = aws_subnet.gru_private_subnets[*].id
 
-  target_group_arns = [aws_lb_target_group.gru_tg01.arn]
+  #target_group_arns = [aws_lb_target_group.gru_tg01.arn]
 
   launch_template {
     id      = aws_launch_template.gru_LT.id

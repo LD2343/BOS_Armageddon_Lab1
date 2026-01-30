@@ -1,23 +1,59 @@
+module "liberdade_tgw" {
+  source  = "terraform-aws-modules/transit-gateway/aws"
+  version = "~> 3.1"
 
-# # Explanation: Liberdade is São Paulo’s Japanese town—local doctors, local compute, remote data.
-# resource "aws_ec2_transit_gateway" "liberdade_tgw01" {
-#   provider    = aws.saopaulo
-#   description = "liberdade-tgw01 (Sao Paulo spoke)"
-#   tags = { Name = "liberdade-tgw01" }
-# }
+  providers = {
+    aws = aws.saopaulo
+  }
 
-# # Explanation: Liberdade accepts the corridor from Shinjuku—permissions are explicit, not assumed.
-# resource "aws_ec2_transit_gateway_peering_attachment_accepter" "liberdade_accept_peer01" {
-#   provider                      = aws.saopaulo
-#   transit_gateway_attachment_id = data.terraform_remote_state.japan.outputs.peering_attachment_id  # Read from Japan output (add this to Japan config if missing)
-#   tags = { Name = "liberdade-accept-peer01" }
-# }
+  name        = "liberdade-tgw01"
+  description = "Sao Paulo spoke Transit Gateway"
 
-# # Explanation: Liberdade attaches to its VPC—compute can now reach Tokyo legally, through the controlled corridor.
-# resource "aws_ec2_transit_gateway_vpc_attachment" "liberdade_attach_sp_vpc01" {
-#   provider           = aws.saopaulo
-#   transit_gateway_id = aws_ec2_transit_gateway.liberdade_tgw01.id
-#   vpc_id             = aws_vpc.brazil_vpc01.id
-#   subnet_ids         = [aws_subnet.brazil_private_subnets[0].id, aws_subnet.brazil_private_subnets[1].id]  # Use list elements; assumes 2 private subnets
-#   tags = { Name = "liberdade-attach-sp-vpc01" }
-# }
+  share_tgw = false
+
+  enable_default_route_table_association = true
+  enable_default_route_table_propagation = true
+
+  vpc_attachments = {
+    sp_vpc01 = {
+      vpc_id     = aws_vpc.gru_vpc01.id
+      subnet_ids = aws_subnet.gru_private_subnets[*].id
+      dns_support   = true
+      ipv6_support  = false
+    }
+  }
+
+  tags = {
+    Name        = "liberdade-tgw01"
+    Environment = "spoke"
+  }
+}
+
+# Accept peering from Tokyo (accepter side)
+resource "aws_ec2_transit_gateway_peering_attachment_accepter" "liberdade_accept_peer01" {
+  count    = var.enable_tgw_peering ? 1 : 0
+  provider = aws.saopaulo
+
+  transit_gateway_attachment_id = "tgw-attach-0c4217bbb8a6ac6ac"
+  tags = {
+    Name = "liberdade-accept-peer01"
+  }
+}
+
+# Associate peering to default association route table
+resource "aws_ec2_transit_gateway_route_table_association" "liberdade_peer_assoc" {
+  count    = var.enable_tgw_peering ? 1 : 0
+  provider = aws.saopaulo
+
+  transit_gateway_attachment_id  = length(aws_ec2_transit_gateway_peering_attachment_accepter.liberdade_accept_peer01) > 0 ? aws_ec2_transit_gateway_peering_attachment_accepter.liberdade_accept_peer01[0].id : null
+  transit_gateway_route_table_id = module.liberdade_tgw.ec2_transit_gateway_association_default_route_table_id
+}
+
+#Propagate peering routes to default propagation route table (São Paulo learns Tokyo CIDRs)
+resource "aws_ec2_transit_gateway_route_table_propagation" "liberdade_peer_to_vpc" {
+  count    = var.enable_tgw_peering ? 1 : 0
+  provider = aws.saopaulo
+
+  transit_gateway_attachment_id  = length(aws_ec2_transit_gateway_peering_attachment_accepter.liberdade_accept_peer01) > 0 ? aws_ec2_transit_gateway_peering_attachment_accepter.liberdade_accept_peer01[0].id : null
+  transit_gateway_route_table_id = module.liberdade_tgw.ec2_transit_gateway_propagation_default_route_table_id
+}

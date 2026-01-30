@@ -1,6 +1,6 @@
-############################################
-# CloudWatch Logs (Log Group)
-############################################
+# ############################################
+# # CloudWatch Logs (Log Group)
+# ############################################
 
 # Explanation: When the Falcon is on fire, logs tell you *which* wire sparked—ship them centrally.
 resource "aws_cloudwatch_log_group" "gru_log_group01" {
@@ -34,11 +34,11 @@ resource "aws_cloudwatch_metric_alarm" "gru_db_alarm01" {
   }
 }
 
-############################################
-# CloudWatch Alarm: ALB 5xx -> SNS
-############################################
+# ############################################
+# # CloudWatch Alarm: ALB 5xx -> SNS
+# ############################################
 
-# Explanation: When the ALB starts throwing 5xx, that’s the Falcon coughing — page the on-call Wookiee.
+# # Explanation: When the ALB starts throwing 5xx, that’s the Falcon coughing — page the on-call Wookiee.
 resource "aws_cloudwatch_metric_alarm" "gru_alb_5xx_alarm01" {
   alarm_name          = "${var.project_name}-alb-5xx-alarm01"
   comparison_operator = "GreaterThanOrEqualToThreshold"
