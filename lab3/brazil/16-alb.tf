@@ -12,11 +12,11 @@ resource "aws_lb" "gru_alb01" {
   subnets         = aws_subnet.gru_public_subnets[*].id
 
   # TODO: students can enable access logs to S3 as a stretch goal
-  access_logs {
-    bucket  = aws_s3_bucket.gru_alb_logs_bucket01[0].bucket
-    prefix  = var.alb_access_logs_prefix
-    enabled = var.enable_alb_access_logs
-  }
+  # access_logs {
+  #   bucket  = aws_s3_bucket.gru_alb_logs_bucket01[0].bucket
+  #   prefix  = var.alb_access_logs_prefix
+  #   enabled = var.enable_alb_access_logs
+  # }
 
   tags = {
     Name = "${var.project_name}-alb01"

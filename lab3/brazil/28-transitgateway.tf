@@ -57,3 +57,11 @@ resource "aws_ec2_transit_gateway_route_table_propagation" "liberdade_peer_to_vp
   transit_gateway_attachment_id  = length(aws_ec2_transit_gateway_peering_attachment_accepter.liberdade_accept_peer01) > 0 ? aws_ec2_transit_gateway_peering_attachment_accepter.liberdade_accept_peer01[0].id : null
   transit_gateway_route_table_id = module.liberdade_tgw.ec2_transit_gateway_propagation_default_route_table_id
 }
+
+# Explanation: Liberdade knows the way to Shinjuku—Tokyo CIDR routes go through the TGW corridor.
+# resource "aws_route" "liberdade_to_tokyo_route01" {
+#   provider               = aws.saopaulo
+#   route_table_id         = aws_route_table.liberdade_private_rt01.id
+#   destination_cidr_block = "10." # Tokyo VPC CIDR (students supply)
+#   transit_gateway_id     = aws_ec2_transit_gateway.liberdade_tgw01.id
+# }

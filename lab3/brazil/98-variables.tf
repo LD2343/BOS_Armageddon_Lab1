@@ -13,7 +13,7 @@ variable "aws_region" {
 variable "project_name" {
   description = "Prefix for naming. Students should change from 'gro' to their own."
   type        = string
-  default     = "gro"
+  default     = "gru"
 }
 
 variable "vpc_cidr" {
@@ -128,5 +128,39 @@ variable "waf_log_destination" {
   validation {
     condition     = contains(["cloudwatch", "firehose", "s3", "none"], var.waf_log_destination)
     error_message = "Valid values are: cloudwatch, firehose, s3, none."
+  }
+}
+
+variable "domain_name" {
+  description = "Base domain students registered (e.g., chewbacca-growl.com)."
+  type        = string
+  default     = "larrryharrisaws.com"
+}
+
+variable "app_subdomain" {
+  description = "App hostname prefix (e.g., app.chewbacca-growl.com)."
+  type        = string
+  default     = "app"
+}
+
+variable "certificate_validation_method" {
+  description = "ACM validation method. Students can do DNS (Route53) or EMAIL."
+  type        = string
+  default     = "DNS"
+}
+
+variable "manage_route53_in_terraform" {
+  description = "Whether to let Terraform manage creation / updates of the Route 53 hosted zone"
+  type        = bool
+  default     = false # ← most people start with true here ### updated to false
+}
+
+variable "route53_hosted_zone_id" {
+  type    = string
+  default = "Z0825167K1N04S2RCG6V"
+
+  validation {
+    condition     = var.route53_hosted_zone_id == "" || can(regex("^[A-Z0-9]{20}$", var.route53_hosted_zone_id))
+    error_message = "route53_hosted_zone_id must be empty or a valid 20-character Route 53 hosted zone ID (e.g. Z0825167K1N04S2RCG6V)."
   }
 }
