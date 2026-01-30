@@ -1,3 +1,5 @@
+################################################################################################################
+
 resource "aws_autoscaling_group" "edo_asg" {
   name_prefix               = "${var.project_name}-asg-"
   min_size                  = 3
@@ -10,6 +12,7 @@ resource "aws_autoscaling_group" "edo_asg" {
   vpc_zone_identifier = aws_subnet.edo_private_subnets[*].id
 
   target_group_arns = [aws_lb_target_group.edo_tg01.arn]
+
 
   launch_template {
     id      = aws_launch_template.edo_LT.id
