@@ -192,7 +192,7 @@ variable "cloudfront_acm_cert_arn" {
 variable "peer_transit_gateway_id" {
   description = "ID of the Transit Gateway in the other region (Brazil TGW ID)"
   type        = string
-  default     = ""   # MUST allow empty on requester side
+  default     = "" # MUST allow empty on requester side
 }
 
 variable "peer_region" {
@@ -204,5 +204,5 @@ variable "peer_region" {
 variable "enable_tgw_peering" {
   description = "Whether to create the Transit Gateway peering attachment (requester side)"
   type        = bool
-  default     = false   # change to true when ready to create peering request
+  default     = false # change to true when ready to create peering request
 }

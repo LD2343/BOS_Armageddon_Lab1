@@ -12,10 +12,10 @@ module "shinjuku_tgw" {
 
   vpc_attachments = {
     tokyo_vpc01 = {
-      vpc_id     = aws_vpc.edo_vpc01.id
-      subnet_ids = aws_subnet.edo_private_subnets[*].id
-      dns_support   = true
-      ipv6_support  = false
+      vpc_id       = aws_vpc.edo_vpc01.id
+      subnet_ids   = aws_subnet.edo_private_subnets[*].id
+      dns_support  = true
+      ipv6_support = false
     }
   }
 
@@ -51,3 +51,11 @@ resource "aws_ec2_transit_gateway_route_table_propagation" "shinjuku_peer_to_vpc
   transit_gateway_attachment_id  = length(aws_ec2_transit_gateway_peering_attachment.shinjuku_to_liberdade) > 0 ? aws_ec2_transit_gateway_peering_attachment.shinjuku_to_liberdade[0].id : null
   transit_gateway_route_table_id = module.shinjuku_tgw.ec2_transit_gateway_propagation_default_route_table_id
 }
+
+
+# Explanation: Shinjuku returns traffic to Liberdade—because doctors need answers, not one-way tunnels.
+# resource "aws_route" "shinjuku_to_sp_route01" {
+#   route_table_id         = aws_route_table.edo_private_rt01.id
+#   destination_cidr_block = "10.55.0.0/16" # Sao Paulo VPC CIDR (students supply)
+#   transit_gateway_id     = aws_ec2_transit_gateway.shinjuku_tgw01.id
+# }

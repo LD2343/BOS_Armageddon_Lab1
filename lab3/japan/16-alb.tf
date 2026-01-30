@@ -4,7 +4,7 @@
 
 # Explanation: The ALB is your public customs checkpoint — it speaks TLS and forwards to private targets.
 resource "aws_lb" "edo_alb01" {
-  provider = aws.ap-northeast-1
+  provider           = aws.ap-northeast-1
   name               = "${var.project_name}-alb01"
   load_balancer_type = "application"
   internal           = false
@@ -13,11 +13,11 @@ resource "aws_lb" "edo_alb01" {
   subnets         = aws_subnet.edo_public_subnets[*].id
 
   # TODO: students can enable access logs to S3 as a stretch goal
-  access_logs {
-    bucket  = aws_s3_bucket.edo_alb_logs_bucket01[0].bucket
-    prefix  = var.alb_access_logs_prefix
-    enabled = var.enable_alb_access_logs
-  }
+  # access_logs {
+  #   bucket  = aws_s3_bucket.edo_alb_logs_bucket01[0].bucket
+  #   prefix  = var.alb_access_logs_prefix
+  #   enabled = var.enable_alb_access_logs
+  # }
 
   tags = {
     Name = "${var.project_name}-alb01"

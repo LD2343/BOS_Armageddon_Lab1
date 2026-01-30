@@ -1,49 +1,81 @@
-############################################
-# ACM Certificate (TLS) for app.chewbacca-growl.com
-############################################
+# Certificate for ALB (regional, in ap-northeast-1)
+resource "aws_acm_certificate" "edo_alb_cert01" {
+  domain_name               = "app.larrryharrisaws.com"
+  subject_alternative_names = ["larrryharrisaws.com", "www.larrryharrisaws.com"]
+  validation_method         = "DNS"
 
-# Explanation: TLS is the diplomatic passport — browsers trust you, and Chewbacca stops growling at plaintext.
-resource "aws_acm_certificate" "edo_acm_cert01" {
-  provider = aws.use1
-  domain_name               = "larrryharrisaws.com"
-  subject_alternative_names = ["*.larrryharrisaws.com"]
-  validation_method         = var.certificate_validation_method
-
-  # TODO: students can add subject_alternative_names like var.domain_name if desired
+  lifecycle {
+    create_before_destroy = true
+  }
 
   tags = {
-    Name = "${var.project_name}-acm-cert01"
+    Name = "edo-alb-cert01"
   }
 }
 
+# Certificate for CloudFront (MUST be in us-east-1)
+resource "aws_acm_certificate" "edo_cf_cert01" {
+  provider = aws.use1
 
-# Explanation: Once validated, ACM becomes the “green checkmark” — until then, ALB HTTPS won’t work.
-resource "aws_acm_certificate_validation" "edo_acm_validation01" {
-  provider = aws.us-east-1
-  certificate_arn = aws_acm_certificate.edo_acm_cert01.arn
+  domain_name               = "app.larrryharrisaws.com"
+  subject_alternative_names = ["larrryharrisaws.com", "www.larrryharrisaws.com"]
+  validation_method         = "DNS"
 
+  lifecycle {
+    create_before_destroy = true
+  }
 
-  #adding from the template resource below as test
-  validation_record_fqdns = [
-    for r in aws_route53_record.edo_acm_validation_records01 : r.fqdn
-  ]
-
-  timeouts {
-    create = "30m" # optional: give more time if propagation is slow
+  tags = {
+    Name = "edo-cf-cert01"
   }
 }
 
-# # Explanation: This ties the “proof record” back to ACM—Chewbacca gets his green checkmark for TLS.
-# resource "aws_acm_certificate_validation" "edo_acm_validation01_dns_bonus" {
-#   count = var.certificate_validation_method == "DNS" ? 1 : 0
+# Validation records for ALB cert (Tokyo)
+resource "aws_route53_record" "edo_alb_validation_records01" {
+  for_each = {
+    for dvo in aws_acm_certificate.edo_alb_cert01.domain_validation_options : dvo.domain_name => {
+      name   = dvo.resource_record_name
+      type   = dvo.resource_record_type
+      record = dvo.resource_record_value
+    }
+  }
 
-#   certificate_arn = aws_acm_certificate.edo_acm_cert01.arn
+  zone_id = var.route53_hosted_zone_id
+  name    = each.value.name
+  type    = each.value.type
+  records = [each.value.record]
+  ttl     = 60
+  allow_overwrite = true
+}
 
-#   validation_record_fqdns = [
-#     for r in aws_route53_record.edo_acm_validation_records01 : r.fqdn
-#   ]
+# Validation records for CloudFront cert (global)
+resource "aws_route53_record" "edo_cf_validation_records01" {
+  for_each = {
+    for dvo in aws_acm_certificate.edo_cf_cert01.domain_validation_options : dvo.domain_name => {
+      name   = dvo.resource_record_name
+      type   = dvo.resource_record_type
+      record = dvo.resource_record_value
+    }
+  }
 
-#   timeouts {
-#     create = "30m"  # optional: give more time if propagation is slow
-#   }
-# }
+  zone_id = var.route53_hosted_zone_id
+  name    = each.value.name
+  type    = each.value.type
+  records = [each.value.record]
+  ttl     = 60
+  allow_overwrite = true
+}
+
+# Validate both certificates
+resource "aws_acm_certificate_validation" "edo_alb_validation01" {
+  certificate_arn = aws_acm_certificate.edo_alb_cert01.arn
+  validation_record_fqdns = [for r in aws_route53_record.edo_alb_validation_records01 : r.fqdn]
+  timeouts { create = "30m" }
+}
+
+resource "aws_acm_certificate_validation" "edo_cf_validation01" {
+  provider = aws.use1
+  certificate_arn = aws_acm_certificate.edo_cf_cert01.arn
+  validation_record_fqdns = [for r in aws_route53_record.edo_cf_validation_records01 : r.fqdn]
+  timeouts { create = "30m" }
+}

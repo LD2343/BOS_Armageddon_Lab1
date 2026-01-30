@@ -29,18 +29,18 @@ resource "aws_autoscaling_group" "edo_asg" {
 
   # Optional: protect new instances briefly during launch
   initial_lifecycle_hook {
-    name                    = "instance-protection-launch"
-    lifecycle_transition    = "autoscaling:EC2_INSTANCE_LAUNCHING"
-    default_result          = "CONTINUE"
-    heartbeat_timeout       = 300
+    name                 = "instance-protection-launch"
+    lifecycle_transition = "autoscaling:EC2_INSTANCE_LAUNCHING"
+    default_result       = "CONTINUE"
+    heartbeat_timeout    = 300
   }
 
   # Optional: give instances time to deregister cleanly
   initial_lifecycle_hook {
-    name                    = "scale-in-protection"
-    lifecycle_transition    = "autoscaling:EC2_INSTANCE_TERMINATING"
-    default_result          = "CONTINUE"
-    heartbeat_timeout       = 300
+    name                 = "scale-in-protection"
+    lifecycle_transition = "autoscaling:EC2_INSTANCE_TERMINATING"
+    default_result       = "CONTINUE"
+    heartbeat_timeout    = 300
   }
 
   tag {
@@ -62,23 +62,23 @@ resource "aws_autoscaling_group" "edo_asg" {
   }
 
   lifecycle {
-    ignore_changes = [desired_capacity]   # let autoscaling manage desired capacity
+    ignore_changes = [desired_capacity] # let autoscaling manage desired capacity
   }
 }
 
 
 # Target Tracking Policy (CPU-based scaling) — very common & recommended
 resource "aws_autoscaling_policy" "edo_cpu_target_policy" {
-  name                   = "${var.project_name}-cpu-target"
-  autoscaling_group_name = aws_autoscaling_group.edo_asg.name
-  policy_type            = "TargetTrackingScaling"
+  name                      = "${var.project_name}-cpu-target"
+  autoscaling_group_name    = aws_autoscaling_group.edo_asg.name
+  policy_type               = "TargetTrackingScaling"
   estimated_instance_warmup = 120
 
   target_tracking_configuration {
     predefined_metric_specification {
       predefined_metric_type = "ASGAverageCPUUtilization"
     }
-    target_value = 70.0   # adjust to your preference (60–75% common)
+    target_value = 70.0 # adjust to your preference (60–75% common)
   }
 }
 

@@ -6,30 +6,26 @@ provider "aws" {
 }
 
 provider "aws" {
-  alias = "use1"
+  alias  = "use1"
   region = "us-east-1"
 }
 
 provider "aws" {
-  alias = "sa_east_1"
+  alias  = "sa_east_1"
   region = "sa-east-1"
 }
 
 provider "aws" {
-  alias = "ap-northeast-1"
+  alias  = "ap-northeast-1"
   region = "ap-northeast-1"
 }
 
-provider "aws" {
-  alias = "us-east-1"
-  region = "us-east-1"
-}
 
 terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 6.28"   # or "~> 6.0" if you want latest
+      version = "~> 6.28" # or "~> 6.0" if you want latest
     }
   }
 }

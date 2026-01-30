@@ -1,8 +1,8 @@
 # Explanation: The shield generator moves to the edge — CloudFront WAF blocks nonsense before it hits your VPC.
 resource "aws_wafv2_web_acl" "edo_cf_waf01" {
   provider = aws.use1
-  name  = "${var.project_name}-cf-waf01"
-  scope = "CLOUDFRONT"
+  name     = "${var.project_name}-cf-waf01"
+  scope    = "CLOUDFRONT"
 
   default_action {
     allow {}

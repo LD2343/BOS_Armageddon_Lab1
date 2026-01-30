@@ -63,9 +63,9 @@ output "edo_target_group_arn" {
   value = aws_lb_target_group.edo_tg01.arn
 }
 
-output "edo_acm_cert_arn" {
-  value = aws_acm_certificate.edo_acm_cert01.arn
-}
+# output "edo_acm_cert_arn" {
+#   value = aws_acm_certificate.edo_acm_cert01.arn
+# }
 
 output "edo_waf_arn" {
   value = var.enable_waf ? aws_wafv2_web_acl.edo_cf_waf01.arn : null
@@ -75,7 +75,7 @@ output "edo_dashboard_name" {
   value = aws_cloudwatch_dashboard.edo_dashboard01.dashboard_name
 }
 
-output "edo_route53_zone_id" {
+output "edo_route53_hosted_zone_id" {
   value = local.edo_zone_id
 }
 
@@ -87,9 +87,9 @@ output "edo_apex_url_https" {
   value = "https://${var.domain_name}"
 }
 
-output "edo_alb_logs_bucket_name" {
-  value = var.enable_alb_access_logs ? aws_s3_bucket.edo_alb_logs_bucket01[0].bucket : null
-}
+# output "edo_alb_logs_bucket_name" {
+#   value = var.enable_alb_access_logs ? aws_s3_bucket.edo_alb_logs_bucket01[0].bucket : null
+#}
 
 output "edo_waf_log_destination" {
   value = var.waf_log_destination
