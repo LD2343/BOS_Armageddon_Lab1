@@ -22,6 +22,12 @@ resource "aws_cloudfront_distribution" "edo_cf01" {
     }
   }
 
+  logging_config {
+    bucket          = "edo-cloudfront-891377135193.s3.amazonaws.com"  # IMPORTANT: full domain name!
+    include_cookies = false                                           # set to true only if needed (logs cookies)
+    prefix          = "cloudfront-logs/"                             # optional: folder prefix for organization, e.g. logs go to cloudfront-logs/YYYY-MM-DD/
+  }
+
   # default_cache_behavior {
   #   target_origin_id       = "${var.project_name}-alb-origin01"
   #   viewer_protocol_policy = "redirect-to-https"

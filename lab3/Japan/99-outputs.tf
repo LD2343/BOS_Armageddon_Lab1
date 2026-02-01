@@ -109,3 +109,8 @@ output "edo_tgw_id" {
   value       = aws_ec2_transit_gateway.edo_tgw01.id
   description = "Tokyo Transit Gateway ID"
 }
+
+output "edo_vpc_cidr" {
+  description = "CIDR block of EDO VPC"
+  value       = aws_vpc.edo_vpc.cidr_block
+}

@@ -5,13 +5,13 @@ variable "aws_account_id" {
 }
 
 variable "aws_region" {
-  description = "AWS Region for the bos fleet to patrol."
+  description = "AWS Region for the edo fleet to patrol."
   type        = string
   default     = "ap-northeast-1"
 }
 
 variable "project_name" {
-  description = "Prefix for naming. Students should change from 'bos' to their own."
+  description = "Prefix for naming. Students should change from 'edo' to their own."
   type        = string
   default     = "edo"
 }

@@ -25,3 +25,12 @@ resource "aws_subnet" "edo_private_subnets" {
     Name = "${local.name_prefix}-private-subnet0${count.index + 1}"
   }
 }
+
+
+resource "aws_vpc" "edo_vpc" {
+  cidr_block = var.vpc_cidr
+  # Add tags, dns support, etc. as needed
+  tags = {
+    Name = "EDO-VPC-Japan"
+  }
+}

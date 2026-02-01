@@ -79,3 +79,11 @@ data "aws_cloudfront_cache_policy" "edo_use_origin_cache_headers01" {
 data "aws_cloudfront_cache_policy" "edo_use_origin_cache_headers_qs01" {
   name = "UseOriginCacheControlHeaders-QueryStrings"
 }
+
+
+# Data source to get the official CloudFront log delivery canonical ID (future-proof)
+data "aws_cloudfront_log_delivery_canonical_user_id" "current" {}
+
+data "aws_canonical_user_id" "current" {}
+
+
