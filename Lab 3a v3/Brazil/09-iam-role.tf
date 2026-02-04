@@ -44,3 +44,19 @@ resource "aws_iam_instance_profile" "gru_instance_profile01" {
   name = "${local.name_prefix}-instance-profile01"
   role = aws_iam_role.gru_ec2_role01.name
 }
+
+resource "aws_iam_role_policy" "gru_ec2_secrets_access_edo" {
+  name = "secrets-access-edo"
+  role = aws_iam_role.gru_ec2_role01.id   # your Brazil role
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Effect   = "Allow"
+        Action   = ["secretsmanager:GetSecretValue", "secretsmanager:DescribeSecret"]
+        Resource = "arn:aws:secretsmanager:ap-northeast-1:891377135193:secret:edo/rds/mysql*"
+      }
+    ]
+  })
+}
